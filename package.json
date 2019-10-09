@@ -9,6 +9,10 @@
     "locales",
     "locale"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loicmahieu/yup-locales.git"
+  },
   "files": [
     "dist"
   ],
