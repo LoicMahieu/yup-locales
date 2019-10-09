@@ -1,27 +1,26 @@
-# TSDX Bootstrap
+# yup-locales
 
-This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
+Localizations for [jquense/yup](https://github.com/jquense/yup).
 
-## Local Development
+## Install
 
-Below is a list of commands you will probably find useful.
+```
+npm install -S yup-locales
+```
 
-### `npm start` or `yarn start`
+## Usage
 
-Runs the project in development/watch mode. Your project will be rebuilt upon changes. TSDX has a special logger for you convenience. Error messages are pretty printed and formatted for compatibility VS Code's Problems tab.
+```js
+import { fr } from 'yup-locales';
+import { setLocale } from 'yup';
+setLocale(fr);
+```
 
-<img src="https://user-images.githubusercontent.com/4060187/52168303-574d3a00-26f6-11e9-9f3b-71dbec9ebfcb.gif" width="600" />
+## Locales
 
-Your library will be rebuilt if you make edits.
+Locales implemented:
 
-### `npm run build` or `yarn build`
+  - `fr`
+  - `nl`
 
-Bundles the package to the `dist` folder.
-The package is optimized and bundled with Rollup into multiple formats (CommonJS, UMD, and ES Module).
-
-<img src="https://user-images.githubusercontent.com/4060187/52168322-a98e5b00-26f6-11e9-8cf6-222d716b75ef.gif" width="600" />
-
-### `npm test` or `yarn test`
-
-Runs the test watcher (Jest) in an interactive mode.
-By default, runs tests related to files changed since the last commit.
+Please submit a PR with a new locale if you need it. In order to create a new locale, you could translate it automatically with `node scripts/create-locale` which will use google translate.

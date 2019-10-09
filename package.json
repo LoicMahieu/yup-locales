@@ -4,6 +4,11 @@
   "main": "dist/index.js",
   "module": "dist/yup-locales.esm.js",
   "typings": "dist/index.d.ts",
+  "keywords": [
+    "yup",
+    "locales",
+    "locale"
+  ],
   "files": [
     "dist"
   ],
