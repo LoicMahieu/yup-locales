@@ -50,7 +50,7 @@ const translateLocale = async to => {
 /*eslint-disable no-template-curly-in-string*/
 
 import printValue from '../util/printValue';
-import { NotTypeArgs } from 'util/types';
+import { NotTypeArgs } from '../util/types';
 
 // Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
 
