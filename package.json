@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.18",
+    "@types/yup": "^0.26.24",
     "@vitalets/google-translate-api": "^3.0.0",
     "eslint-config-react-app": "5.0.1",
     "fs-extra": "^8.1.0",

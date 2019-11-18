@@ -50,19 +50,19 @@ const translateLocale = async to => {
 /*eslint-disable no-template-curly-in-string*/
 
 import printValue from '../util/printValue';
-import { NotTypeArgs } from '../util/types';
+import { LocaleObject, FormatErrorParams } from 'yup';
 
 // Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
 
-export let mixed = {
+export const mixed = {
   default: '${await t('${path} is invalid.')}',
   required: '${await t('${path} is a required field')}',
   oneOf: '${await t('${path} must be one of the following values: ${values}')}',
   notOneOf: '${await t(
     '${path} must not be one of the following values: ${values}'
   )}',
-  notType: ({ path, type, value, originalValue }: NotTypeArgs) => {
-    let isCast = originalValue != null && originalValue !== value;
+  notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
+    const isCast = originalValue != null && originalValue !== value;
     let msg =
       \`${await t('${path} must be a `${type}` type')}, \` +
       \`${await t('but the final value was: `${printValue(value, true)}`')}\` +
@@ -82,7 +82,7 @@ export let mixed = {
   },
 };
 
-export let string = {
+export const string: LocaleObject["string"] = {
   length: '${await t('${path} must be exactly ${length} characters')}',
   min: '${await t('${path} must be at least ${min} characters')}',
   max: '${await t('${path} must be at most ${max} characters')}',
@@ -94,7 +94,7 @@ export let string = {
   uppercase: '${await t('${path} must be a upper case string')}',
 };
 
-export let number = {
+export const number: LocaleObject["number"] = {
   min: '${await t('${path} must be greater than or equal to ${min}')}',
   max: '${await t('${path} must be less than or equal to ${max}')}',
   lessThan: '${await t('${path} must be less than ${less}')}',
@@ -105,20 +105,20 @@ export let number = {
   integer: '${await t('${path} must be an integer')}',
 };
 
-export let date = {
+export const date: LocaleObject["date"] = {
   min: '${await t('${path} field must be later than ${min}')}',
   max: '${await t('${path} field must be at earlier than ${max}')}',
 };
 
-export let boolean = {};
+export const boolean: LocaleObject["boolean"] = {};
 
-export let object = {
+export const object: LocaleObject["object"] = {
   noUnknown: '${await t(
     '${path} field cannot have keys not specified in the object shape'
   )}',
 };
 
-export let array = {
+export const array: LocaleObject["array"] = {
   min: '${await t('${path} field must have at least ${min} items')}',
   max: '${await t(
     '${path} field must have less than or equal to ${max} items'
