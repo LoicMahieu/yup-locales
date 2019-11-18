@@ -20,7 +20,8 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
-    "lint": "tsdx lint"
+    "lint": "tsdx lint",
+    "prepare": "yarn build"
   },
   "peerDependencies": {},
   "husky": {
