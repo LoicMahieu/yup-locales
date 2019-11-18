@@ -4,16 +4,15 @@ import printValue from '../util/printValue';
 import { NotTypeArgs } from 'util/types';
 
 // Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
-
 export let mixed = {
   default: '${path} is ongeldig.',
   required: '${path} is een verplicht veld',
-  oneOf: '${values}: ${path} moet een van de volgende waarden',
-  notOneOf: '${values}: ${path} niet een van de volgende waarden',
+  oneOf: '${path} moet één van de volgende waarden zijn: ${values}',
+  notOneOf: '${path} mag niet een van de volgende waarden zijn: ${values}: ',
   notType: ({ path, type, value, originalValue }: NotTypeArgs) => {
     let isCast = originalValue != null && originalValue !== value;
     let msg =
-      `${path} moet \`${type}\` type, ` +
+      `${path} moet een \`${type}\` zijn, ` +
       `maar de uiteindelijke waarde was: \`${printValue(value, true)}\`` +
       (isCast
         ? ` (gegoten uit de waarde \`${printValue(originalValue, true)}\`).`
@@ -30,41 +29,41 @@ export let mixed = {
 };
 
 export let string = {
-  length: '${path} moet zijn precies ${length} tekens',
-  min: '${path} moet minimaal ${min} karakters',
-  max: '${path} mag maximaal ${max} tekens',
+  length: '${path} moet precies ${length} karakters lang zijn',
+  min: '${path} moet minimaal ${min} karakters bevatten',
+  max: '${path} mag maximaal ${max} tekens bevatten',
   matches: '${path} moet overeenkomen met het volgende: "${regex}"',
-  email: '${path} moet een geldig e-mailadres',
+  email: '${path} moet een geldig e-mailadres zijn',
   url: '${path} moet een geldige URL zijn',
-  trim: '${path} moet worden bijgesneden tekenreeks',
-  lowercase: '${path} moet een kleine tekenreeks zijn',
-  uppercase: '${path} moet hoofdletters tekenreeks',
+  trim: '${path} mag geen begin- of eindspaties bevatten',
+  lowercase: '${path} mag alleen bestaan uit kleine letters',
+  uppercase: '${path} mag alleen bestaan uit hoofdletters',
 };
 
 export let number = {
-  min: '${path} groter dan of gelijk aan ${min} be',
-  max: '${path} moet lager dan of gelijk aan ${max} be',
-  lessThan: '${path} mag maximaal ${less} be',
-  moreThan: '${path} groter dan ${more} be',
-  notEqual: '${path} niet gelijk zijn aan ${notEqual} be',
+  min: '${path} moet groter dan of gelijk zijn aan ${min}',
+  max: '${path} moet lager dan of gelijk zijn aan ${max}',
+  lessThan: '${path} moet lager zijn dan ${less}',
+  moreThan: '${path} moet hoger zijn dan ${more}',
+  notEqual: '${path} mag niet gelijk zijn aan ${notEqual}',
   positive: '${path} moet een positief getal zijn',
   negative: '${path} moet negatief getal zijn',
-  integer: '${path} moet een geheel getal zijn',
+  integer: '${path} moet een getal zijn',
 };
 
 export let date = {
-  min: '${path} -veld moet meer dan ${min}',
-  max: '${path} -veld moet eerder dan ${max}',
+  min: '${path} moet later dan ${min} zijn',
+  max: '${path} moet eerder dan ${max} zijn',
 };
 
 export let boolean = {};
 
 export let object = {
   noUnknown:
-    '${path} -veld kunnen sleutels niet in de objectvorm worden opgegeven',
+    '${path} mag geen waarden bevatten die niet zijn opgegeven in het object',
 };
 
 export let array = {
-  min: '${path} veld moet ten minste ${min} items',
-  max: '${path} -veld moet lager zijn dan of gelijk zijn ${max} artikelen',
+  min: '${path} moet ten minste ${min} items bevatten',
+  max: '${path} moet minder of gelijk zijn aan ${max} items',
 };
