@@ -45,7 +45,6 @@ export const number: LocaleObject['number'] = {
   max: '${path} moet lager dan of gelijk zijn aan ${max}',
   lessThan: '${path} moet lager zijn dan ${less}',
   moreThan: '${path} moet hoger zijn dan ${more}',
-  notEqual: '${path} mag niet gelijk zijn aan ${notEqual}',
   positive: '${path} moet een positief getal zijn',
   negative: '${path} moet negatief getal zijn',
   integer: '${path} moet een getal zijn',

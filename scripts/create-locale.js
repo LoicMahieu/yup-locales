@@ -99,7 +99,6 @@ export const number: LocaleObject["number"] = {
   max: '${await t('${path} must be less than or equal to ${max}')}',
   lessThan: '${await t('${path} must be less than ${less}')}',
   moreThan: '${await t('${path} must be greater than ${more}')}',
-  notEqual: '${await t('${path} must be not equal to ${notEqual}')}',
   positive: '${await t('${path} must be a positive number')}',
   negative: '${await t('${path} must be a negative number')}',
   integer: '${await t('${path} must be an integer')}',
