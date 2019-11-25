@@ -9,7 +9,7 @@ const symbolToString =
 const SYMBOL_REGEXP = /^Symbol\((.*)\)(.*)$/;
 
 function printNumber(val: number) {
-  if (val != +val) return 'NaN';
+  if (val !== +val) return 'NaN';
   const isNegativeZero = val === 0 && 1 / val < 0;
   return isNegativeZero ? '-0' : '' + val;
 }

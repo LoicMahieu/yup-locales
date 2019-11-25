@@ -1,17 +1,16 @@
 /*eslint-disable no-template-curly-in-string*/
 
 import printValue from '../util/printValue';
-import { NotTypeArgs } from '../util/types';
+import { LocaleObject, FormatErrorParams } from 'yup';
 
 // Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
-
-export let mixed = {
+export const mixed: LocaleObject['mixed'] = {
   default: '${path} est invalide.',
   required: '${path} est un champ obligatoire',
   oneOf: "${path} doit être l'une des valeurs suivantes: ${values}",
   notOneOf: "${path} ne doit pas être l'une des valeurs suivantes: ${values}",
-  notType: ({ path, type, value, originalValue }: NotTypeArgs) => {
-    let isCast = originalValue != null && originalValue !== value;
+  notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
+    const isCast = originalValue != null && originalValue !== value;
     let msg =
       `${path} doit être un type \`${type}\`, ` +
       `mais la valeur finale était: \`${printValue(value, true)}\`` +
@@ -29,7 +28,7 @@ export let mixed = {
   },
 };
 
-export let string = {
+export const string: LocaleObject['string'] = {
   length: '${path} doit être exactement ${length} caractères',
   min: '${path} doit être au moins ${min} caractères',
   max: '${path} doit être au plus ${max} caractères',
@@ -41,30 +40,29 @@ export let string = {
   uppercase: '${path} doit être une chaîne de majuscules',
 };
 
-export let number = {
+export const number: LocaleObject['number'] = {
   min: '${path} doit être supérieure ou égale à ${min}',
   max: '${path} doit être inférieur ou égal à ${max}',
   lessThan: '${path} doit être inférieure à ${less}',
   moreThan: '${path} doit être supérieure à ${more}',
-  notEqual: '${path} ne doit pas être égal à ${notEqual}',
   positive: '${path} doit être un nombre positif',
   negative: '${path} doit être un nombre négatif',
   integer: '${path} doit être un entier',
 };
 
-export let date = {
+export const date: LocaleObject['date'] = {
   min: '${path} champ doit être au plus tard ${min}',
   max: 'champ ${path} doit être au plus tôt ${max}',
 };
 
-export let boolean = {};
+export const boolean: LocaleObject['boolean'] = {};
 
-export let object = {
+export const object: LocaleObject['object'] = {
   noUnknown:
     "champ ${path} ne peut pas avoir des clés non spécifiées dans la forme de l'objet",
 };
 
-export let array = {
+export const array: LocaleObject['array'] = {
   min: 'champ ${path} doit avoir au moins ${min} articles',
   max: '${path} champ doit avoir inférieur ou égal à ${max} articles',
 };
