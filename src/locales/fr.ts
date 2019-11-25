@@ -4,8 +4,7 @@ import printValue from '../util/printValue';
 import { LocaleObject, FormatErrorParams } from 'yup';
 
 // Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
-
-export const mixed: LocaleObject["mixed"] = {
+export const mixed: LocaleObject['mixed'] = {
   default: '${path} est invalide.',
   required: '${path} est un champ obligatoire',
   oneOf: "${path} doit être l'une des valeurs suivantes: ${values}",
@@ -29,7 +28,7 @@ export const mixed: LocaleObject["mixed"] = {
   },
 };
 
-export const string: LocaleObject["string"] = {
+export const string: LocaleObject['string'] = {
   length: '${path} doit être exactement ${length} caractères',
   min: '${path} doit être au moins ${min} caractères',
   max: '${path} doit être au plus ${max} caractères',
@@ -41,7 +40,7 @@ export const string: LocaleObject["string"] = {
   uppercase: '${path} doit être une chaîne de majuscules',
 };
 
-export const number: LocaleObject["number"] = {
+export const number: LocaleObject['number'] = {
   min: '${path} doit être supérieure ou égale à ${min}',
   max: '${path} doit être inférieur ou égal à ${max}',
   lessThan: '${path} doit être inférieure à ${less}',
@@ -51,19 +50,19 @@ export const number: LocaleObject["number"] = {
   integer: '${path} doit être un entier',
 };
 
-export const date: LocaleObject["date"] = {
+export const date: LocaleObject['date'] = {
   min: '${path} champ doit être au plus tard ${min}',
   max: 'champ ${path} doit être au plus tôt ${max}',
 };
 
-export const boolean: LocaleObject["boolean"] = {};
+export const boolean: LocaleObject['boolean'] = {};
 
-export const object: LocaleObject["object"] = {
+export const object: LocaleObject['object'] = {
   noUnknown:
     "champ ${path} ne peut pas avoir des clés non spécifiées dans la forme de l'objet",
 };
 
-export const array: LocaleObject["array"] = {
+export const array: LocaleObject['array'] = {
   min: 'champ ${path} doit avoir au moins ${min} articles',
   max: '${path} champ doit avoir inférieur ou égal à ${max} articles',
 };

@@ -53,8 +53,7 @@ import printValue from '../util/printValue';
 import { LocaleObject, FormatErrorParams } from 'yup';
 
 // Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
-
-export const mixed = {
+export const mixed: LocaleObject['mixed'] = {
   default: '${await t('${path} is invalid.')}',
   required: '${await t('${path} is a required field')}',
   oneOf: '${await t('${path} must be one of the following values: ${values}')}',
