@@ -1,6 +1,6 @@
 {
   "name": "yup-locales",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "main": "dist/index.js",
   "module": "dist/yup-locales.esm.js",
   "typings": "dist/index.d.ts",
@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/loicmahieu/yup-locales.git"
+    "url": "https://github.com/loicmahieu/yup-locales.git"
   },
   "files": [
     "dist"
@@ -21,7 +21,8 @@
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "yarn build"
+    "prepare": "yarn build",
+    "semantic-release": "semantic-release"
   },
   "peerDependencies": {},
   "husky": {
@@ -44,6 +45,7 @@
     "husky": "^3.1.0",
     "tsdx": "^0.11.0",
     "tslib": "^1.10.0",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.2",
+    "semantic-release": "^17.0.8"
   }
 }
