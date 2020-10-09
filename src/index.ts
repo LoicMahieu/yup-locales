@@ -4,5 +4,6 @@ import * as nb from './locales/nb';
 import * as de from './locales/de';
 import * as ar from './locales/ar';
 import * as it from './locales/it';
+import * as es from './locales/es';
 
-export { fr, nl, nb, de, ar, it };
+export { fr, nl, nb, de, ar, es, it };
