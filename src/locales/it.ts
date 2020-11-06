@@ -12,7 +12,7 @@ export const mixed: LocaleObject['mixed'] = {
   notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
-      `${path} deve essere un ${type} \`\` tipo, ` +
+      `${path} deve essere un \`${type}\` tipo, ` +
       `ma il valore finale è: \`${printValue(value, true)}\`` +
       (isCast
         ? ` (valore originale: \`${printValue(originalValue, true)}\`).`
