@@ -31,7 +31,7 @@ export const mixed: LocaleObject['mixed'] = {
 export const string: LocaleObject['string'] = {
   length: '${path} moet precies ${length} karakters lang zijn',
   min: '${path} moet minimaal ${min} karakters bevatten',
-  max: '${path} mag maximaal ${max} tekens bevatten',
+  max: '${path} mag maximaal ${max} karakters bevatten',
   matches: '${path} moet overeenkomen met het volgende: "${regex}"',
   email: '${path} moet een geldig e-mailadres zijn',
   url: '${path} moet een geldige URL zijn',
