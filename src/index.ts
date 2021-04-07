@@ -6,5 +6,6 @@ import * as ar from './locales/ar';
 import * as it from './locales/it';
 import * as es from './locales/es';
 import * as pt from './locales/pt';
+import * as tr from './locales/tr';
 
-export { fr, nl, nb, de, ar, es, it, pt };
+export { fr, nl, nb, de, ar, es, it, pt, tr };
