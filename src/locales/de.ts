@@ -4,7 +4,8 @@
  * https://github.com/skress/yup-locale-de/
  */
 
-import { LocaleObject } from 'yup';
+import printValue from '../util/printValue';
+import { LocaleObject, FormatErrorParams } from 'yup';
 
 // Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
 export const mixed: LocaleObject['mixed'] = {
@@ -12,7 +13,21 @@ export const mixed: LocaleObject['mixed'] = {
   required: '${path} ist ein Pflichtfeld',
   oneOf: '${path} muss einem der folgenden Werte entsprechen: ${values}',
   notOneOf: '${path} darf keinem der folgenden Werte entsprechen: ${values}',
-  // @todo Add notType to de translation
+  notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
+    const isCast = originalValue != null && originalValue !== value;
+    let msg =
+      `${path} muss vom Typ \`${type}\` sein, ` +
+      `aber der Wert war: \`${printValue(value, true)}\`` +
+      (isCast
+        ? ` (gecastet aus dem Wert \`${printValue(originalValue, true)}\`).`
+        : '.');
+
+    if (value === null) {
+      msg += `\n Wenn "null" als leerer Wert gedacht ist, müssen Sie das Schema als \`.nullable()\` markieren.`;
+    }
+
+    return msg;
+  },
 };
 
 export const string: LocaleObject['string'] = {
