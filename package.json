@@ -24,7 +24,6 @@
     "prepare": "yarn build",
     "semantic-release": "semantic-release"
   },
-  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
@@ -40,11 +39,11 @@
     "@types/jest": "^26.0.14",
     "@types/yup": "^0.29.8",
     "@vitalets/google-translate-api": "^4.0.0",
-    "eslint-config-react-app": "5.2.1",
+    "eslint-config-react-app": "^7.0.0",
     "fs-extra": "^9.0.1",
     "husky": "^4.3.0",
     "semantic-release": "^17.1.2",
-    "tsdx": "^0.14.0",
+    "tsdx": "^0.14.1",
     "tslib": "^2.0.2",
     "typescript": "^4.0.3"
   }
