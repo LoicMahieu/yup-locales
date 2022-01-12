@@ -1,0 +1,14 @@
+{
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "releaseRules": [
+          {
+            "release": "patch"
+          }
+        ]
+      }
+    ]
+  ]
+}
