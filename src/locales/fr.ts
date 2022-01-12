@@ -7,8 +7,8 @@ import { LocaleObject, FormatErrorParams } from 'yup';
 export const mixed: LocaleObject['mixed'] = {
   default: '${path} est invalide.',
   required: '${path} est un champ obligatoire',
-  oneOf: "${path} doit être l'une des valeurs suivantes: ${values}",
-  notOneOf: "${path} ne doit pas être l'une des valeurs suivantes: ${values}",
+  oneOf: "${path} doit être l'une des valeurs suivantes : ${values}",
+  notOneOf: "${path} ne doit pas être l'une des valeurs suivantes : ${values}",
   notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
@@ -32,7 +32,7 @@ export const string: LocaleObject['string'] = {
   length: '${path} doit être exactement ${length} caractères',
   min: '${path} doit être au moins ${min} caractères',
   max: '${path} doit être au plus ${max} caractères',
-  matches: '${path} doit correspondre à ce qui suit: "${regex}"',
+  matches: '${path} doit correspondre à ce qui suit : "${regex}"',
   email: '${path} doit être un email valide',
   url: '${path} doit être une URL valide',
   trim: '${path} doit être une chaîne garnie',
