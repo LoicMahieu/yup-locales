@@ -8,8 +8,8 @@
             "release": "patch"
           }
         ]
-      },
-      "@semantic-release/npm"
-    ]
+      }
+    ],
+    "@semantic-release/npm"
   ]
 }
