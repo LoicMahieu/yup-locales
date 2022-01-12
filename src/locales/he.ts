@@ -1,5 +1,5 @@
 import printValue from '../util/printValue';
-import { LocaleObject, FormatErrorParams } from 'yup';
+import { LocaleObject } from 'yup';
 
 // Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
 export const mixed: LocaleObject['mixed'] = {
@@ -41,7 +41,6 @@ export const number: LocaleObject['number'] = {
   max: '${path}חייב להיות קטן או שווה ל ${max}',
   lessThan: '${path} חייב להיות קטן מ ${less}',
   moreThan: '${path} חייב להיות גדול מ ${more}',
-  notEqual: '${path} צריך להיות לא שווה ל ${notEqual}',
   positive: '${path} מוכרח להיות חיובי',
   negative: '${path} מוכרח להיות שלילי',
   integer: '${path} חייב להיות מספר שלם',
