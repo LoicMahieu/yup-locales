@@ -20,13 +20,14 @@ setLocale(fr);
 
 Locales implemented:
 
-- `fr`
-- `nl`
-- `nb`
-- `de`
 - `ar`
+- `de`
 - `es`
+- `fr`
+- `he`
 - `it`
+- `nb`
+- `nl`
 - `pt`
 - `tr`
 
