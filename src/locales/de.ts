@@ -65,6 +65,6 @@ export const object: LocaleObject['object'] = {
 };
 
 export const array: LocaleObject['array'] = {
-  min: '${path}-Feld muss mindesten ${min} Einträge haben',
+  min: '${path}-Feld muss mindestens ${min} Einträge haben',
   max: '${path}-Feld darf höchstens ${max} Einträge haben',
 };
