@@ -47,7 +47,7 @@ export const number: LocaleObject['number'] = {
   moreThan: '${path}, ${more} haneden fazla olmalıdır',
   positive: '${path} pozitif bir sayı olmalıdır',
   negative: '${path} negatif bir sayı olmalıdır',
-  integer: '${path} bir tamsayı olmalıdır', 
+  integer: '${path} bir tamsayı olmalıdır',
 };
 
 export const date: LocaleObject['date'] = {
@@ -58,8 +58,7 @@ export const date: LocaleObject['date'] = {
 export const boolean: LocaleObject['boolean'] = {};
 
 export const object: LocaleObject['object'] = {
-  noUnknown:
-    '${path} alanında nesne olmayan değerler bulunamaz',
+  noUnknown: '${path} alanında nesne olmayan değerler bulunamaz',
 };
 
 export const array: LocaleObject['array'] = {
