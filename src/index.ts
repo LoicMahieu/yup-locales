@@ -8,5 +8,6 @@ import * as nb from './locales/nb';
 import * as nl from './locales/nl';
 import * as pt from './locales/pt';
 import * as tr from './locales/tr';
+import * as lt from './locales/lt';
 
-export { ar, de, es, fr, he, it, nb, nl, pt, tr };
+export { ar, de, es, fr, he, it, nb, nl, pt, tr, lt };
