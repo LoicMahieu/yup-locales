@@ -5,7 +5,7 @@ import { LocaleObject, FormatErrorParams } from 'yup';
 
 // Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
 export const mixed: LocaleObject['mixed'] = {
-  default: 'Pole ${path} jest niepoprwne.',
+  default: 'Pole ${path} jest niepoprawne',
   required: 'Pole ${path} jest wymagane',
   oneOf: 'Pole ${path} musi mieć jedną z następujących wartości: ${values}',
   notOneOf: 'Pole ${path} nie może mieć jednej z następujących wartości: ${values}',
