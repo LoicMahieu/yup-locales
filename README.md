@@ -25,6 +25,7 @@ Locales implemented:
 - `es`
 - `fr`
 - `he`
+- `id`
 - `it`
 - `nb`
 - `nl`
