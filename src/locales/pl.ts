@@ -8,7 +8,8 @@ export const mixed: LocaleObject['mixed'] = {
   default: 'Pole ${path} jest niepoprawne',
   required: 'Pole ${path} jest wymagane',
   oneOf: 'Pole ${path} musi mieć jedną z następujących wartości: ${values}',
-  notOneOf: 'Pole ${path} nie może mieć jednej z następujących wartości: ${values}',
+  notOneOf:
+    'Pole ${path} nie może mieć jednej z następujących wartości: ${values}',
   notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
@@ -57,9 +58,8 @@ export const date: LocaleObject['date'] = {
 
 export const boolean: LocaleObject['boolean'] = {};
 
-export const object: LocaleObject['object'] = { 
-  noUnknown:
-    'Pole ${path} nie może zawierać nieznanych kluczy',
+export const object: LocaleObject['object'] = {
+  noUnknown: 'Pole ${path} nie może zawierać nieznanych kluczy',
 };
 
 export const array: LocaleObject['array'] = {
