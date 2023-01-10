@@ -51,8 +51,8 @@ export const number: LocaleObject['number'] = {
 };
 
 export const date: LocaleObject['date'] = {
-  min: '${path} champ doit être au plus tard ${min}',
-  max: 'champ ${path} doit être au plus tôt ${max}',
+  min: '${path} champ doit être au plus tôt ${min}',
+  max: 'champ ${path} doit être au plus tard ${max}',
 };
 
 export const boolean: LocaleObject['boolean'] = {};

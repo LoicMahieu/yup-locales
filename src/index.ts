@@ -1,4 +1,5 @@
 import * as ar from './locales/ar';
+import * as da from './locales/da';
 import * as de from './locales/de';
 import * as es from './locales/es';
 import * as fr from './locales/fr';
@@ -13,4 +14,4 @@ import * as lt from './locales/lt';
 import * as pl from './locales/pl';
 import * as sk from './locales/sk';
 
-export { ar, de, es, fr, he, id, it, nb, nl, pt, tr, lt, pl, sk };
+export { ar, da, de, es, fr, he, id, it, nb, nl, pt, tr, lt, pl, sk };
