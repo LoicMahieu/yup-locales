@@ -29,9 +29,9 @@ export const mixed: LocaleObject['mixed'] = {
 };
 
 export const string: LocaleObject['string'] = {
-  length: '${path} debe ser exactamente ${length} caracteres',
-  min: '${path} debe ser de al menos ${min} caracteres',
-  max: '${path} debe ser como máximo ${max} caracteres',
+  length: '${path} debe tener exactamente ${length} caracteres',
+  min: '${path} debe tener como mínimo ${min} caracteres',
+  max: '${path} debe tener como máximo ${max} caracteres',
   matches: '${path} debe coincidir con lo siguiente: "${regex}"',
   email: '${path} debe ser un correo electrónico válido',
   url: '${path} debe ser una URL válida',
@@ -41,8 +41,8 @@ export const string: LocaleObject['string'] = {
 };
 
 export const number: LocaleObject['number'] = {
-  min: '${path} debe ser mayor que o igual a ${min}',
-  max: '${path} debe ser menor que o igual a ${max}',
+  min: '${path} debe ser mayor o igual a ${min}',
+  max: '${path} debe ser menor o igual a ${max}',
   lessThan: '${path} debe ser menor a ${less}',
   moreThan: '${path} debe ser mayor a ${more}',
   positive: '${path} debe ser un número positivo',
@@ -51,17 +51,17 @@ export const number: LocaleObject['number'] = {
 };
 
 export const date: LocaleObject['date'] = {
-  min: '${path} campo debe ser posterior a ${min}',
-  max: '${path} campo debe ser anterior a ${max}',
+  min: 'El campo ${path} debe ser posterior a ${min}',
+  max: 'El campo ${path} debe ser anterior a ${max}',
 };
 
 export const boolean: LocaleObject['boolean'] = {};
 
 export const object: LocaleObject['object'] = {
-  noUnknown: '${path} campo tiene llaves no especificadas en el objeto',
+  noUnknown: 'El campo ${path} tiene claves no especificadas en el objeto',
 };
 
 export const array: LocaleObject['array'] = {
-  min: '${path} campo debe tener al menos ${min} artículos',
-  max: '${path} campo debe ser menor o igual a ${max} artículos',
+  min: 'El campo ${path} debe tener como mínimo ${min} elementos',
+  max: 'El campo ${path} debe tener como máximo ${max} elementos',
 };
