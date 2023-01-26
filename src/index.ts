@@ -13,5 +13,6 @@ import * as tr from './locales/tr';
 import * as lt from './locales/lt';
 import * as pl from './locales/pl';
 import * as sk from './locales/sk';
+import * as cs from './locales/cs';
 
-export { ar, da, de, es, fr, he, id, it, nb, nl, pt, tr, lt, pl, sk };
+export { ar, da, de, es, fr, he, id, it, nb, nl, pt, tr, lt, pl, sk, cs };
