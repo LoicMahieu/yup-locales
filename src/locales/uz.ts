@@ -15,9 +15,9 @@ export const mixed: LocaleObject['mixed'] = {
     let msg =
       `${path} maydon \`${type}\` turiga tegishli emas. ` +
       (isCast
-        ? `\`${printValue(originalValue, true)}\` dan olingan `
-        : '') +
-      `oxirgi qiymat \`${printValue(value, true)}\` \` ga teng.`
+        ? `\`${printValue(originalValue, true)}\` dan olingan o`
+        : 'O') +
+      `xirgi qiymat \`${printValue(value, true)}\` ga teng.`
       
     if (value === null) {
       msg += `\n Agar "null" bo‘sh qiymat bo‘lsa, sxemada \`.nullable()\` qilib belgilanganligiga ishonch hosil qiling`;
