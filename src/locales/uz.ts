@@ -6,10 +6,9 @@ import { LocaleObject, FormatErrorParams } from 'yup';
 // Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
 export const mixed: LocaleObject['mixed'] = {
   default: '${path}da xatolik mavjud',
-  required: '${path} maydonga ma\'lumot kiritilmagan',
-  oneOf: '${path} maydon ${values} qiymatlardan bittasi emas',
-  notOneOf:
-    '${path} maydon ushbu ${values} qiymatlarni qabul qilmaydi',
+  required: '${path} maydoniga ma\'lumot kiritilmagan',
+  oneOf: '${path} maydoni ${values} qiymatlardan bittasi emas',
+  notOneOf: '${path} maydoni ${values} qiymatlarini qabul qilmaydi',
   notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
@@ -28,12 +27,12 @@ export const mixed: LocaleObject['mixed'] = {
 };
 
 export const string: LocaleObject['string'] = {
-  length: '${path} maydon ${length}ta belgidan iborat emas',
-  min: '${path} maydon kamida ${min}ta belgidan iborat bo‘lishi lozim',
-  max: '${path} maydon ko‘pi bilan ${max}ta belgidan iborat bo‘lishi mumkin',
+  length: '${path} maydoni ${length}ta belgidan iborat emas',
+  min: '${path} maydoni kamida ${min}ta belgidan iborat bo‘lishi lozim',
+  max: '${path} maydoni ko‘pi bilan ${max}ta belgidan iborat bo‘lishi mumkin',
   matches: '${path} maydon qiymati "${regex}" muntazam ifodaga mos emas',
   email: '${path} maydon qiymati e-mail emas',
-  url: '${path} mayqon qiymati havola emas',
+  url: '${path} maydon qiymati havola emas',
   trim: '${path} mayqon qiymati boshida yoki oxirida bo‘shliqlar mavjud',
   lowercase: '${path} mayqon qiymat kichik harflardan iborat emas',
   uppercase: '${path} mayqon qiymat bosh (katta) harflardan iborat emas',
