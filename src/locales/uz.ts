@@ -15,7 +15,7 @@ export const mixed: LocaleObject['mixed'] = {
     let msg =
       `${path} maydon \`${type}\` turiga tegishli emas. ` +
       (isCast
-        ? `\`${printValue(originalValue, true)}\` dan olingan`
+        ? `\`${printValue(originalValue, true)}\` dan olingan `
         : '') +
       `oxirgi qiymat \`${printValue(value, true)}\` \` ga teng.`
       
@@ -36,7 +36,7 @@ export const string: LocaleObject['string'] = {
   url: '${path} mayqon qiymati havola emas',
   trim: '${path} mayqon qiymati boshida yoki oxirida bo‘shliqlar mavjud',
   lowercase: '${path} mayqon qiymat kichik harflardan iborat emas',
-  uppercase: '${path} mayqon qiymat boshqa harflardan iborat emas',
+  uppercase: '${path} mayqon qiymat bosh (katta) harflardan iborat emas',
 };
 
 export const number: LocaleObject['number'] = {
@@ -50,8 +50,8 @@ export const number: LocaleObject['number'] = {
 };
 
 export const date: LocaleObject['date'] = {
-  min: '${path} maydon qiymati ${min} sanandan oldin',
-  max: '${path} maydon qiymati ${max} sanadan keyin',
+  min: '${path} maydon qiymati ${min} sanandan oldin bo‘lmasligi lozim',
+  max: '${path} maydon qiymati ${max} sanadan keyin bo‘lmasligi lozim',
 };
 
 export const boolean: LocaleObject['boolean'] = {
@@ -63,6 +63,6 @@ export const object: LocaleObject['object'] = {
 };
 
 export const array: LocaleObject['array'] = {
-  min: '${path} maydon kamida ${min}ta elementdan iborat emas',
+  min: '${path} maydon kamida ${min}ta elementdan iborat bo‘lishi lozim',
   max: '${path} maydon ko‘pi bilan ${max} elementdan iborat bo‘lishi mumkin',
 };
