@@ -17,5 +17,7 @@ import * as ru from './locales/ru';
 import * as cs from './locales/cs';
 import * as uz from './locales/uz';
 import * as vi from './locales/vi';
+import * as zh from './locales/zh';
+import * as th from './locales/th';
 
-export { ar, da, de, es, fr, he, id, it, nb, nl, pt, tr, lt, pl, sk, ru, cs, uz, vi };
+export { ar, da, de, es, fr, he, id, it, nb, nl, pt, tr, lt, pl, sk, ru, cs, uz, vi, zh, th };
