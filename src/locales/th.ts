@@ -14,9 +14,7 @@ export const mixed: LocaleObject['mixed'] = {
     let msg =
       `${path} ต้องเป็น \`${type}\` ผู้ชาย, ` +
       `แต่ค่าสุดท้ายคือ: \`${printValue(value, true)}\`` +
-      (isCast
-        ? ` (ได้จากค่า \`${printValue(originalValue, true)}\`).`
-        : '.');
+      (isCast ? ` (ได้จากค่า \`${printValue(originalValue, true)}\`).` : '.');
 
     if (value === null) {
       msg +=

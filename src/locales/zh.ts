@@ -14,14 +14,10 @@ export const mixed: LocaleObject['mixed'] = {
     let msg =
       `${path} 必须是 \`${type}\` 盖伊, ` +
       `但最终的价值是: \`${printValue(value, true)}\`` +
-      (isCast
-        ? ` (从值中获得 \`${printValue(originalValue, true)}\`).`
-        : '.');
+      (isCast ? ` (从值中获得 \`${printValue(originalValue, true)}\`).` : '.');
 
     if (value === null) {
-      msg +=
-        `\n 如果“null”故意为空值，请务必将架构标记为` +
-        ' `.nullable()`';
+      msg += `\n 如果“null”故意为空值，请务必将架构标记为` + ' `.nullable()`';
     }
 
     return msg;
