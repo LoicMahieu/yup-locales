@@ -16,5 +16,6 @@ import * as sk from './locales/sk';
 import * as ru from './locales/ru';
 import * as cs from './locales/cs';
 import * as uz from './locales/uz';
+import * as vi from './locales/vi';
 
-export { ar, da, de, es, fr, he, id, it, nb, nl, pt, tr, lt, pl, sk, ru, cs, uz };
+export { ar, da, de, es, fr, he, id, it, nb, nl, pt, tr, lt, pl, sk, ru, cs, uz, vi };
