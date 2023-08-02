@@ -13,7 +13,7 @@ export const mixed: LocaleObject['mixed'] = {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
       `${path}, \`${type}\`, türünde olmak zorundadır` +
-      `fakat son değer budur: \`${printValue(value, true)}\`` +
+      ` fakat son değer budur: \`${printValue(value, true)}\`` +
       (isCast
         ? `çevirilen orjinal değer: ( \`${printValue(originalValue, true)}\`).`
         : '.');
