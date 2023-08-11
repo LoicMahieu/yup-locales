@@ -13,7 +13,7 @@ export const mixed: LocaleObject['mixed'] = {
   notType: ({ path, type, value, originalValue }) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
-      `${path} يجب أن يكون نوعًا, ` +
+      `${path} يجب أن يكون \`${type}\` نوع, ` +
       `لكن القيمة النهائية كانت: \`${printValue(value, true)}\` \`` +
       (isCast
         ? ` (يلقي من القيمة \`${printValue(originalValue, true)}\`).`

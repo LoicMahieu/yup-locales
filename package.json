@@ -21,7 +21,7 @@
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "yarn build && husky install",
+    "prepare": "npm run build && husky install",
     "semantic-release": "semantic-release"
   },
   "peerDependencies": {},
