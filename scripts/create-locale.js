@@ -56,8 +56,7 @@ const translateLocale = async to => {
   return `
 /*eslint-disable no-template-curly-in-string*/
 
-import printValue from '../util/printValue';
-import { LocaleObject } from 'yup';
+import { printValue, LocaleObject } from 'yup';
 
 // Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
