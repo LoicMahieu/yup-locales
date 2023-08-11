@@ -52,10 +52,12 @@ const translateLocale = async to => {
 import printValue from '../util/printValue';
 import { LocaleObject, FormatErrorParams } from 'yup';
 
-// Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
+// Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
   default: '${await t('${path} is invalid.')}',
   required: '${await t('${path} is a required field')}',
+  defined: '${await t('${path} must be defined')}',
+  notNull: '${await t('${path} cannot be null')}',
   oneOf: '${await t('${path} must be one of the following values: ${values}')}',
   notOneOf: '${await t(
     '${path} must not be one of the following values: ${values}'
@@ -88,6 +90,7 @@ export const string: LocaleObject["string"] = {
   matches: '${await t('${path} must match the following: "${regex}"')}',
   email: '${await t('${path} must be a valid email')}',
   url: '${await t('${path} must be a valid URL')}',
+  uuid: '${await t('${path} must be a valid UUID')}',
   trim: '${await t('${path} must be a trimmed string')}',
   lowercase: '${await t('${path} must be a lowercase string')}',
   uppercase: '${await t('${path} must be a upper case string')}',
@@ -108,7 +111,9 @@ export const date: LocaleObject["date"] = {
   max: '${await t('${path} field must be at earlier than ${max}')}',
 };
 
-export const boolean: LocaleObject["boolean"] = {};
+export const boolean: LocaleObject["boolean"] = {
+  isValue: '${await t('${path} field must be ${value}')}',
+};
 
 export const object: LocaleObject["object"] = {
   noUnknown: '${await t(
@@ -121,6 +126,7 @@ export const array: LocaleObject["array"] = {
   max: '${await t(
     '${path} field must have less than or equal to ${max} items'
   )}',
+  length: '${await t('${path} must have ${length} items')}',
 };
 `;
 };
