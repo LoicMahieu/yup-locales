@@ -8,6 +8,11 @@ const dest = join(__dirname, '../src/locales');
 const run = async () => {
   const locale = process.argv[2];
 
+  if (!locale) {
+    console.error('Please provide a locale to create');
+    process.exit(1);
+  }
+
   console.log(`Create locale file for \`${locale}\`...`);
 
   await writeFile(
@@ -20,6 +25,8 @@ const run = async () => {
       parser: 'typescript',
     })
   );
+
+  console.log(`Locale file for \`${locale}\` created!`);
 };
 
 const translateLocale = async to => {
@@ -50,7 +57,7 @@ const translateLocale = async to => {
 /*eslint-disable no-template-curly-in-string*/
 
 import printValue from '../util/printValue';
-import { LocaleObject, FormatErrorParams } from 'yup';
+import { LocaleObject } from 'yup';
 
 // Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
@@ -62,21 +69,21 @@ export const mixed: LocaleObject['mixed'] = {
   notOneOf: '${await t(
     '${path} must not be one of the following values: ${values}'
   )}',
-  notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
+  notType: ({ path, type, value, originalValue }) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
       \`${await t('${path} must be a `${type}` type')}, \` +
       \`${await t('but the final value was: `${printValue(value, true)}`')}\` +
       (isCast
         ? \` (${await t(
-          'cast from the value `${printValue(originalValue, true)}`'
-        )}).\`
+    'cast from the value `${printValue(originalValue, true)}`'
+  )}).\`
         : '.');
 
     if (value === null) {
       msg += \`\\n ${await t(
-        'If "null" is intended as an empty value be sure to mark the schema as'
-      )}\` + ' \`.nullable()\`';
+    'If "null" is intended as an empty value be sure to mark the schema as'
+  )}\` + ' \`.nullable()\`';
     }
 
     return msg;

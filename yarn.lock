@@ -1434,11 +1434,6 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@types/yup@^0.29.14":
-  version "0.29.14"
-  resolved "https://registry.yarnpkg.com/@types/yup/-/yup-0.29.14.tgz#754f1dccedcc66fc2bbe290c27f5323b407ceb00"
-  integrity sha512-Ynb/CjHhE/Xp/4bhHmQC4U1Ox+I2OpfRYF3dnNgQqn1cHa6LK3H1wJMNPT02tSVZA6FYuXE2ITORfbnb6zBCSA==
-
 "@typescript-eslint/eslint-plugin@^2.12.0":
   version "2.34.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-2.34.0.tgz#6f8ce8a46c7dea4a6f1d171d2bb8fbae6dac2be9"
@@ -5396,6 +5391,11 @@ prop-types@^15.8.1:
     object-assign "^4.1.1"
     react-is "^16.13.1"
 
+property-expr@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/property-expr/-/property-expr-2.0.5.tgz#278bdb15308ae16af3e3b9640024524f4dc02cb4"
+  integrity sha512-IJUkICM5dP5znhCckHSv30Q4b5/JA5enCtkRHYaOVOAocnH/1BQEYTC5NMfT3AVl/iXKdr3aqQbQn9DxyWknwA==
+
 psl@^1.1.28:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/psl/-/psl-1.8.0.tgz#9326f8bcfb013adcc005fdff056acce020e51c24"
@@ -6333,6 +6333,11 @@ through@^2.3.6:
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
 
+tiny-case@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/tiny-case/-/tiny-case-1.0.3.tgz#d980d66bc72b5d5a9ca86fb7c9ffdb9c898ddd03"
+  integrity sha512-Eet/eeMhkO6TX8mnUteS9zgPbUMQa4I6Kkp5ORiBD5476/m+PIRiumP5tmh5ioJpH7k51Kehawy2UDfsnxxY8Q==
+
 tiny-glob@^0.2.6:
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/tiny-glob/-/tiny-glob-0.2.9.tgz#2212d441ac17928033b110f8b3640683129d31e2"
@@ -6394,6 +6399,11 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     extend-shallow "^3.0.2"
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
+
+toposort@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/toposort/-/toposort-2.0.2.tgz#ae21768175d1559d48bef35420b2f4962f09c330"
+  integrity sha512-0a5EOkAUp8D4moMi2W8ZF8jcga7BgZd91O/yabJCFY8az+XSzeGyTKs0Aoo897iV1Nj6guFq8orWDS96z91oGg==
 
 tough-cookie@^2.3.3, tough-cookie@~2.5.0:
   version "2.5.0"
@@ -6567,6 +6577,11 @@ type-fest@^0.8.1:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
   integrity sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==
+
+type-fest@^2.19.0:
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-2.19.0.tgz#88068015bb33036a598b952e55e9311a60fd3a9b"
+  integrity sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==
 
 typedarray-to-buffer@^3.1.5:
   version "3.1.5"
@@ -6902,3 +6917,13 @@ yargs@^15.3.1:
     which-module "^2.0.0"
     y18n "^4.0.0"
     yargs-parser "^18.1.2"
+
+yup@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/yup/-/yup-1.2.0.tgz#9e51af0c63bdfc9be0fdc6c10aa0710899d8aff6"
+  integrity sha512-PPqYKSAXjpRCgLgLKVGPA33v5c/WgEx3wi6NFjIiegz90zSwyMpvTFp/uGcVnnbx6to28pgnzp/q8ih3QRjLMQ==
+  dependencies:
+    property-expr "^2.0.5"
+    tiny-case "^1.0.3"
+    toposort "^2.0.2"
+    type-fest "^2.19.0"
