@@ -1,24 +1,25 @@
 /*eslint-disable no-template-curly-in-string*/
 
-import printValue from '../util/printValue';
-import { LocaleObject, FormatErrorParams } from 'yup';
+import { printValue, LocaleObject } from 'yup';
 
-// Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
+// Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
-  default: '${path} มันไม่ถูกต้อง',
-  required: '${path} เป็นฟิลด์บังคับ',
-  oneOf: '${path} ต้องเป็นค่าใดค่าหนึ่งต่อไปนี้: ${values}',
-  notOneOf: '${path} ต้องไม่เป็นค่าใดค่าหนึ่งต่อไปนี้: ${values}',
-  notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
+  default: '${path} ไม่ถูกต้อง',
+  required: '${path} เป็นฟิลด์ที่จำเป็น',
+  defined: '${path} ต้องกำหนด',
+  notNull: '${path} ไม่สามารถเป็นโมฆะได้',
+  oneOf: '${path} ต้องเป็นหนึ่งในค่าต่อไปนี้: ${values}',
+  notOneOf: '${path} ต้องไม่เป็นหนึ่งในค่าต่อไปนี้: ${values}',
+  notType: ({ path, type, value, originalValue }) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
-      `${path} ต้องเป็น \`${type}\` ผู้ชาย, ` +
+      `${path} ต้องเป็น \`${type}\` ประเภท, ` +
       `แต่ค่าสุดท้ายคือ: \`${printValue(value, true)}\`` +
-      (isCast ? ` (ได้จากค่า \`${printValue(originalValue, true)}\`).` : '.');
+      (isCast ? ` (หล่อจากค่า \`${printValue(originalValue, true)}\`).` : '.');
 
     if (value === null) {
       msg +=
-        `\n ถ้า "null" จงใจให้เป็นค่าว่าง อย่าลืมทำเครื่องหมายสคีมาเป็น` +
+        `\n หาก "null" มีวัตถุประสงค์เพื่อเป็นค่าว่างให้แน่ใจว่าทำเครื่องหมายสคีมาเป็น` +
         ' `.nullable()`';
     }
 
@@ -27,13 +28,14 @@ export const mixed: LocaleObject['mixed'] = {
 };
 
 export const string: LocaleObject['string'] = {
-  length: '${path} ต้องมีอย่างแน่นอน ${length} ตัวละคร',
-  min: '${path} ต้องมีอย่างน้อย ${min} ตัวละคร',
-  max: '${path} ต้องมีมากที่สุด ${max} ตัวละคร',
-  matches: '${path} จะต้องตรงกับข้อต่อไปนี้: "${regex}"',
+  length: '${path} ต้องเป็นตัวละคร ${length}',
+  min: '${path} อย่างน้อย ${min} ตัวละคร',
+  max: '${path} ต้องเป็นตัวละครมากที่สุด ${max}',
+  matches: '${path} ต้องตรงกับสิ่งต่อไปนี้: "${regex}"',
   email: '${path} ต้องเป็นอีเมลที่ถูกต้อง',
   url: '${path} ต้องเป็น URL ที่ถูกต้อง',
-  trim: '${path} ต้องเป็นสตริงที่ตัดแต่งแล้ว',
+  uuid: '${path} ต้องเป็น UUID ที่ถูกต้อง',
+  trim: '${path} ต้องเป็นสตริงที่ถูกตัดแต่ง',
   lowercase: '${path} ต้องเป็นสตริงตัวพิมพ์เล็ก',
   uppercase: '${path} ต้องเป็นสตริงตัวพิมพ์ใหญ่',
 };
@@ -49,17 +51,20 @@ export const number: LocaleObject['number'] = {
 };
 
 export const date: LocaleObject['date'] = {
-  min: 'สนาม ${path} ต้องหลัง ${min}',
-  max: 'สนาม ${path} ต้องมาก่อน ${max}',
+  min: '${path} ฟิลด์ต้องช้ากว่า ${min}',
+  max: '${path} ฟิลด์ต้องอยู่ที่เร็วกว่า ${max}',
 };
 
-export const boolean: LocaleObject['boolean'] = {};
+export const boolean: LocaleObject['boolean'] = {
+  isValue: '${path} ฟิลด์ต้องเป็น ${value}',
+};
 
 export const object: LocaleObject['object'] = {
-  noUnknown: 'สนาม ${path} มีคีย์ที่ไม่ระบุในวัตถุ',
+  noUnknown: '${path} ฟิลด์ไม่สามารถระบุคีย์ได้ในรูปร่างของวัตถุ',
 };
 
 export const array: LocaleObject['array'] = {
-  min: 'สนาม ${path} ต้องมีอย่างน้อย ${min} รายการ',
-  max: 'สนาม ${path} ต้องมีมากที่สุด ${max} รายการ',
+  min: '${path} ฟิลด์ต้องมีอย่างน้อย ${min} รายการ',
+  max: '${path} ฟิลด์ต้องมีน้อยกว่าหรือเท่ากับ ${max} รายการ',
+  length: '${path} ต้องมี ${length} รายการ',
 };

@@ -1,18 +1,21 @@
 /*eslint-disable no-template-curly-in-string*/
 
-import printValue from '../util/printValue';
-import { LocaleObject, FormatErrorParams } from 'yup';
+import { printValue, LocaleObject } from 'yup';
 
-// Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
+// Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
   default: '${path} tidak valid.',
-  required: '${path} wajib diisi',
-  oneOf: '${path} tidak valid',
-  notOneOf: '${path} tidak valid',
-  notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
+  required: '${path} adalah bidang yang diperlukan',
+  defined: '${path} harus didefinisikan',
+  notNull: '${path} tidak bisa nol',
+  oneOf:
+    '${path} harus menjadi salah satu dari nilai -nilai berikut: ${values}',
+  notOneOf:
+    '${path} tidak boleh menjadi salah satu dari nilai -nilai berikut: ${values}',
+  notType: ({ path, type, value, originalValue }) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
-      `${path} harus merupakan tipe \`${type}\`, ` +
+      `${path} harus \`${type}\` tipe, ` +
       `tetapi nilai akhir adalah: \`${printValue(value, true)}\`` +
       (isCast
         ? ` (dilemparkan dari nilai \`${printValue(originalValue, true)}\`).`
@@ -33,11 +36,12 @@ export const string: LocaleObject['string'] = {
   min: '${path} harus setidaknya ${min} karakter',
   max: '${path} harus paling banyak ${max} karakter',
   matches: '${path} harus cocok dengan yang berikut: "${regex}"',
-  email: '${path} harus merupakan email yang valid',
-  url: '${path} harus merupakan url yang valid',
-  trim: '${path} harus merupakan string yang dipangkas',
-  lowercase: '${path} harus merupakan lowercase',
-  uppercase: '${path} harus merupakan uppercase',
+  email: '${path} harus menjadi email yang valid',
+  url: '${path} harus menjadi URL yang valid',
+  uuid: '${path} harus menjadi UUID yang valid',
+  trim: '${path} harus menjadi string yang dipangkas',
+  lowercase: '${path} harus menjadi string kecil',
+  uppercase: '${path} Harus menjadi string kasus atas',
 };
 
 export const number: LocaleObject['number'] = {
@@ -45,24 +49,28 @@ export const number: LocaleObject['number'] = {
   max: '${path} harus kurang dari atau sama dengan ${max}',
   lessThan: '${path} harus kurang dari ${less}',
   moreThan: '${path} harus lebih besar dari ${more}',
-  positive: '${path} harus merupakan bilangan positif',
-  negative: '${path} harus merupakan bilangan negatif',
-  integer: '${path} harus merupakan bilangan bulat',
+  positive: '${path} harus menjadi angka positif',
+  negative: '${path} harus menjadi angka negatif',
+  integer: '${path} harus menjadi bilangan bulat',
 };
 
 export const date: LocaleObject['date'] = {
-  min: '${path} harus lebih lambat dari ${min}',
-  max: '${path} harus lebih awal dari ${max}',
+  min: '${path} Bidang harus lebih lambat dari ${min}',
+  max: '${path} Lapangan harus lebih awal dari ${max}',
 };
 
-export const boolean: LocaleObject['boolean'] = {};
+export const boolean: LocaleObject['boolean'] = {
+  isValue: '${path} Bidang harus ${value}',
+};
 
 export const object: LocaleObject['object'] = {
   noUnknown:
-    '${path} tidak dapat memiliki kunci yang tidak ditentukan dalam bentuk objek',
+    '${path} Bidang tidak dapat memiliki kunci yang tidak ditentukan dalam bentuk objek',
 };
 
 export const array: LocaleObject['array'] = {
-  min: '${path} harus memiliki setidaknya ${min} item',
-  max: '${path} harus memiliki kurang dari atau sama dengan item ${max}',
+  min: '${path} Bidang harus memiliki setidaknya ${min} item',
+  max:
+    '${path} Lapangan harus memiliki kurang dari atau sama dengan item ${max}',
+  length: '${path} harus memiliki item ${length}',
 };

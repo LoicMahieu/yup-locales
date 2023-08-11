@@ -1,26 +1,27 @@
 /*eslint-disable no-template-curly-in-string*/
 
-import printValue from '../util/printValue';
-import { LocaleObject, FormatErrorParams } from 'yup';
+import { printValue, LocaleObject } from 'yup';
 
-// Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
+// Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
   default: '${path} غير صالح.',
   required: '${path} هو حقل مطلوب',
+  defined: '${path} يجب تعريفها',
+  notNull: '${path} لا يمكن أن يكون فارغًا',
   oneOf: '${path} يجب أن تكون واحدة من القيم التالية: ${values}',
-  notOneOf: '${path} لا يجب أن تكون واحدة من القيم التالية: ${values}',
-  notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
+  notOneOf: '${path} يجب ألا تكون واحدة من القيم التالية: ${values}',
+  notType: ({ path, type, value, originalValue }) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
-      `${path} يجب أن يكون \`${type}\` نوع, ` +
-      `ولكن القيمة النهائية كانت في: \`${printValue(value, true)}\`` +
+      `${path} يجب أن يكون نوعًا, ` +
+      `لكن القيمة النهائية كانت: \`${printValue(value, true)}\` \`` +
       (isCast
-        ? ` (المدلى بها من قيمة \`${printValue(originalValue, true)}\`).`
+        ? ` (يلقي من القيمة \`${printValue(originalValue, true)}\`).`
         : '.');
 
     if (value === null) {
       msg +=
-        `\n إذا كان المقصود "لاغية" كقيمة فارغة مما لا شك فيه للاحتفال مخطط كما` +
+        `\n إذا كان المقصود "NULL" كقيمة فارغة ، فتأكد من وضع علامة على المخطط` +
         ' `.nullable()`';
     }
 
@@ -29,39 +30,44 @@ export const mixed: LocaleObject['mixed'] = {
 };
 
 export const string: LocaleObject['string'] = {
-  length: '${path} يجب أن يكون بالضبط ${length} حرفا',
-  min: '${path} يجب أن تكون على الأقل ${min} حرفا',
-  max: '${path} يجب أن تكون على الأكثر ${max} حرفا',
-  matches: '${path} يجب أن يطابق ما يلي: "${regex}"',
-  email: '${path} يجب أن يكون عنوان بريد إلكتروني صالح',
-  url: '${path} يجب أن يكون عنوان URL صالحا',
-  trim: '${path} يجب أن تكون سلسلة قلص',
+  length: '${path} يجب أن يكون بالضبط ${length} أحرف',
+  min: '${path} يجب أن تكون أحرفًا على الأقل ${min}',
+  max: '${path} يجب أن تكون على الأكثر ${max} أحرف',
+  matches: '${path} يجب أن يتطابق مع ما يلي: "${regex}"',
+  email: '${path} يجب أن يكون بريدًا إلكترونيًا صالحًا',
+  url: '${path} يجب أن يكون عنوان URL صالح',
+  uuid: '${path} يجب أن يكون uuid صالح',
+  trim: '${path} يجب أن تكون سلسلة مقلدة',
   lowercase: '${path} يجب أن تكون سلسلة صغيرة',
-  uppercase: '${path} يجب أن تكون سلسلة الحالة العلوي',
+  uppercase: '${path} يجب أن تكون سلسلة حالة علوية',
 };
 
 export const number: LocaleObject['number'] = {
-  min: '${path} يجب أن تكون أكبر من أو يساوي ${min}',
+  min: '${path} يجب أن تكون أكبر من أو تساوي ${min}',
   max: '${path} يجب أن يكون أقل من أو يساوي ${max}',
   lessThan: '${path} يجب أن يكون أقل من ${less}',
   moreThan: '${path} يجب أن تكون أكبر من ${more}',
-  positive: '${path} يجب أن يكون رقما موجبا',
-  negative: '${path} يجب أن يكون رقما سالبا',
-  integer: '${path} يجب أن يكون رقما',
+  positive: '${path} يجب أن يكون رقمًا إيجابيًا',
+  negative: '${path} يجب أن يكون رقمًا سالبًا',
+  integer: '${path} يجب أن يكون عدد صحيح',
 };
 
 export const date: LocaleObject['date'] = {
-  min: '${path} يجب أن يكون حقل في وقت لاحق من ${min}',
-  max: '${path} يجب أن يكون حقل في وقت سابق من ${max}',
+  min: 'يجب أن يكون الحقل ${path} متأخراً عن ${min}',
+  max: 'يجب أن يكون الحقل ${path} في وقت سابق من ${max}',
 };
 
-export const boolean: LocaleObject['boolean'] = {};
+export const boolean: LocaleObject['boolean'] = {
+  isValue: '${path} يجب أن يكون الحقل ${value}',
+};
 
 export const object: LocaleObject['object'] = {
-  noUnknown: '${path} حقل لا يمكن أن يكون مفاتيح غير محددة في شكل وجوه',
+  noUnknown:
+    '${path} لا يمكن أن يحتوي الحقل على مفاتيح غير محددة في شكل الكائن',
 };
 
 export const array: LocaleObject['array'] = {
-  min: 'يجب أن يكون ${path} حقل على الأقل ${min} من العناصر',
-  max: '${path} يجب أن يكون الحقل أقل من أو يساوي إلى ${max} من العناصر',
+  min: '${path} يجب أن يكون للحقل عناصر على الأقل ${min}',
+  max: '${path} يجب أن يحتوي الحقل على أقل من أو يساوي ${max} عناصر',
+  length: '${path} يجب أن يكون لديها ${length} عناصر',
 };

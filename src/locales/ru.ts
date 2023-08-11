@@ -1,26 +1,28 @@
 /*eslint-disable no-template-curly-in-string*/
 
-import printValue from '../util/printValue';
-import { LocaleObject, FormatErrorParams } from 'yup';
+import { printValue, LocaleObject } from 'yup';
 
-// Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
+// Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
-  default: '${path} содержит ошибку',
-  required: 'Поле ${path} обязательное для заполнения',
-  oneOf: 'Поле ${path} должно содержать одно из следующих значение: ${values}',
-  notOneOf:
-    'Поле ${path} не должно содержать одно из следующих значение: ${values}',
-  notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
+  default: '${path} является недействительным.',
+  required: '${path} - необходимое поле',
+  defined: '${path} должен быть определен',
+  notNull: '${path} не может быть нулевым',
+  oneOf: '${path} должен быть одним из следующих значений: ${values}',
+  notOneOf: '${path} не должен быть одним из следующих значений: ${values}',
+  notType: ({ path, type, value, originalValue }) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
-      `Поле ${path} должно быть  \`${type}\` типом, ` +
-      `но финальное значение: \`${printValue(value, true)}\` \`` +
+      `${path} должен быть \`${type}\` тип, ` +
+      `Но окончательное значение было: \`${printValue(value, true)}\`` +
       (isCast
-        ? ` (приведено из значения \`${printValue(originalValue, true)}\`).`
+        ? ` (бросить из значения \`${printValue(originalValue, true)}\`).`
         : '.');
 
     if (value === null) {
-      msg += `\n Если "null" является пустым значением, убедитесь что схема помечена как \`.nullable()\``;
+      msg +=
+        `\n Если «нуль» предназначено как пустое значение, обязательно отметить схему как` +
+        ' `.nullable()`';
     }
 
     return msg;
@@ -28,42 +30,43 @@ export const mixed: LocaleObject['mixed'] = {
 };
 
 export const string: LocaleObject['string'] = {
-  length: 'Поле ${path} должно иметь длину ${length} символов',
-  min: 'Поле ${path} должно содержать минимум ${min} символов',
-  max: 'Поле ${path} должно содержать не более ${max} символов',
-  matches:
-    'Поле ${path} должно совпадать со следующим регулярном выражением: „${regex}”',
-  email: 'Поле ${path} должно быть электронной почтой',
-  url: 'Поле ${path} должно быть валидной ссылкой',
-  trim: 'Поле ${path} не должно содержать в начале или в конце пробелы',
-  lowercase: 'Поле ${path} должно быть в нижним регистре',
-  uppercase: 'Поле ${path} должно быть в верхнем регистре',
+  length: '${path} должен быть точно ${length} символы',
+  min: '${path} должен быть как минимум ${min} символы',
+  max: '${path} должен быть не более максимум ${max} символы',
+  matches: '${path} должен соответствовать следующему: "${regex}"',
+  email: '${path} Должен быть действительным электронным письмом',
+  url: '${path} должен быть действительный URL',
+  uuid: '${path} должен быть действительным UUID',
+  trim: '${path} Должен быть обрезанной строкой',
+  lowercase: '${path} Должен быть строчной строкой',
+  uppercase: '${path} должна быть строка верхнего чехла',
 };
 
 export const number: LocaleObject['number'] = {
-  min: 'Поле ${path} должно быть больше или равно ${min}',
-  max: 'Поле ${path} должно быть меньше или равно ${max}',
-  lessThan: 'Поле ${path} должно быть меньше чем ${less}',
-  moreThan: 'Поле ${path} должно быть больше ${more}',
-  positive: 'Поле ${path} должно быть положительном числом',
-  negative: 'Поле ${path} должно быть негативном числом',
-  integer: 'Поле ${path} должно быть целым числом',
+  min: '${path} должен быть больше или равен ${min}',
+  max: '${path} должно быть меньше или равна ${max}',
+  lessThan: '${path} должно быть меньше, чем ${less}',
+  moreThan: '${path} должен быть больше, чем ${more}',
+  positive: '${path} должно быть положительным числом',
+  negative: '${path} должно быть отрицательным числом',
+  integer: '${path} должно быть целым числом',
 };
 
 export const date: LocaleObject['date'] = {
-  min: 'Поле ${path} не может быть меньше начальной ${min}',
-  max: 'Поле ${path} не может быть больше конечной ${max}',
+  min: '${path} Поле должно быть позже ${min}',
+  max: '${path} Поле должно быть в более раннем, чем ${max}',
 };
 
 export const boolean: LocaleObject['boolean'] = {
-  isValue: 'Поле ${path} должно иметь значение: ${value}',
+  isValue: '${path} Поле должно быть ${value}',
 };
 
 export const object: LocaleObject['object'] = {
-  noUnknown: 'Поле ${path} не может содержать неизвестные ключи',
+  noUnknown: 'Поле ${path} не может иметь ключи, не указанные в форме объекта',
 };
 
 export const array: LocaleObject['array'] = {
-  min: 'Поле ${path} должно быть указано не менее ${min} элементов',
-  max: 'Поле ${path} должно быть указано не более ${max} элементов',
+  min: '${path} Поле должно иметь по крайней мере ${min} элементы',
+  max: '${path} Поле должно иметь меньше или равное ${max} элементам',
+  length: '${path} должны иметь ${length} элементы',
 };

@@ -1,26 +1,27 @@
 /*eslint-disable no-template-curly-in-string*/
 
-import printValue from '../util/printValue';
-import { LocaleObject, FormatErrorParams } from 'yup';
+import { printValue, LocaleObject } from 'yup';
 
-// Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
+// Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
   default: '${path} é inválido.',
-  required: '${path} é um campo obrigatório',
+  required: '${path} é um campo necessário',
+  defined: '${path} deve ser definido',
+  notNull: '${path} não pode ser nulo',
   oneOf: '${path} deve ser um dos seguintes valores: ${values}',
   notOneOf: '${path} não deve ser um dos seguintes valores: ${values}',
-  notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
+  notType: ({ path, type, value, originalValue }) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
-      `${path} deve ser um tipo de \`${type}\`, ` +
+      `${path} deve ser um \`${type}, ` +
       `Mas o valor final foi: \`${printValue(value, true)}\`` +
       (isCast
-        ? ` (Elenco do valor \`${printValue(originalValue, true)}\`).`
+        ? ` (lançado do valor \`${printValue(originalValue, true)}\`).`
         : '.');
 
     if (value === null) {
       msg +=
-        `\n Se "null" pretender como um valor vazio, certifique-se de marcar o esquema como` +
+        `\n Se "nulo" for destinado a um valor vazio, marque o esquema como` +
         ' `.nullable()`';
     }
 
@@ -33,11 +34,12 @@ export const string: LocaleObject['string'] = {
   min: '${path} deve ser pelo menos ${min} caracteres',
   max: '${path} deve ser no máximo ${max} caracteres',
   matches: '${path} deve corresponder ao seguinte: "${regex}"',
-  email: '${path} deve ser um email válido',
+  email: '${path} deve ser um e -mail válido',
   url: '${path} deve ser um URL válido',
+  uuid: '${path} deve ser um UUID válido',
   trim: '${path} deve ser uma corda aparada',
-  lowercase: '${path} deve ser uma cadeia minúscula',
-  uppercase: '${path} deve ser uma cadeia maiúscula',
+  lowercase: '${path} deve ser uma corda minúscula',
+  uppercase: '${path} deve ser uma corda de caixa superior',
 };
 
 export const number: LocaleObject['number'] = {
@@ -47,22 +49,25 @@ export const number: LocaleObject['number'] = {
   moreThan: '${path} deve ser maior que ${more}',
   positive: '${path} deve ser um número positivo',
   negative: '${path} deve ser um número negativo',
-  integer: '${path} deve ser um inteiro',
+  integer: '${path} deve ser um número inteiro',
 };
 
 export const date: LocaleObject['date'] = {
-  min: 'Campo ${path} deve ser mais tarde do que ${min}',
-  max: '${path} deve ser mais cedo do que ${max}',
+  min: '${path} O campo deve ser posterior a ${min}',
+  max: '${path} O campo deve ser mais cedo que ${max}',
 };
 
-export const boolean: LocaleObject['boolean'] = {};
+export const boolean: LocaleObject['boolean'] = {
+  isValue: '${path} O campo deve ser ${value}',
+};
 
 export const object: LocaleObject['object'] = {
   noUnknown:
-    'Campo ${path} não pode ter chaves não especificadas na forma do objeto',
+    '${path} O campo não pode ter chaves não especificadas na forma do objeto',
 };
 
 export const array: LocaleObject['array'] = {
-  min: 'O campo ${path} deve ter pelo menos ${min} itens',
-  max: 'O campo ${path} deve ter menos ou igual a itens ${max}',
+  min: '${path} O campo deve ter pelo menos ${min} itens',
+  max: '${path} O campo deve ter menos ou igual a ${max} itens',
+  length: '${path} deve ter ${length} itens',
 };
