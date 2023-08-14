@@ -7,7 +7,7 @@ export const mixed: LocaleObject['mixed'] = {
   default: '${path} is ongeldig.',
   required: '${path} is een vereist veld',
   defined: '${path} moet worden gedefinieerd',
-  notNull: '${path} kan niet nul zijn',
+  notNull: '${path} kan niet leeg zijn',
   oneOf: '${path} Moet een van de volgende waarden zijn: ${values}',
   notOneOf: '${path} mag niet een van de volgende waarden zijn: ${values}',
   notType: ({ path, type, value, originalValue }) => {
