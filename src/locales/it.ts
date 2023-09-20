@@ -1,26 +1,27 @@
 /*eslint-disable no-template-curly-in-string*/
 
-import printValue from '../util/printValue';
-import { LocaleObject, FormatErrorParams } from 'yup';
+import { printValue, LocaleObject } from 'yup';
 
-// Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
+// Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
   default: '${path} non è valido.',
-  required: '${path} è un campo obbligatorio',
-  oneOf: '${path} deve contenere uno dei seguenti valori: ${values}',
-  notOneOf: '${path} deve essere diverso dai seguenti valori: ${values}',
-  notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
+  required: '${path} è un campo richiesto',
+  defined: '${path} deve essere definito',
+  notNull: '${path} non può essere nullo',
+  oneOf: '${path} deve essere uno dei seguenti valori: ${values}',
+  notOneOf: '${path} non deve essere uno dei seguenti valori: ${values}',
+  notType: ({ path, type, value, originalValue }) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
-      `${path} deve essere un \`${type}\` tipo, ` +
-      `ma il valore finale è: \`${printValue(value, true)}\`` +
+      `${path} deve essere un tipo \`${type}\`, ` +
+      `Ma il valore finale era: \`${printValue(value, true)}\`` +
       (isCast
-        ? ` (valore originale: \`${printValue(originalValue, true)}\`).`
+        ? ` (cast dal valore \`${printValue(originalValue, true)}\`).`
         : '.');
 
     if (value === null) {
       msg +=
-        `\n Se "null" è inteso come un valore vuoto assicurarsi di settare lo schema come` +
+        `\n Se "null" è inteso come valore vuoto, assicurarsi di contrassegnare lo schema come` +
         ' `.nullable()`';
     }
 
@@ -29,15 +30,16 @@ export const mixed: LocaleObject['mixed'] = {
 };
 
 export const string: LocaleObject['string'] = {
-  length: '${path} deve avere esattamente ${length} caratteri',
-  min: '${path} deve avere almeno ${min} caratteri',
-  max: '${path} deve avere al massimo ${max} caratteri',
-  matches: '${path} deve corrispondere al seguente: "${regex}"',
-  email: '${path} deve essere un indirizzo email valido',
+  length: '${path} deve essere esattamente ${length} caratteri',
+  min: '${path} deve essere almeno ${min} caratteri',
+  max: '${path} deve essere al massimo ${max} caratteri',
+  matches: '${path} deve abbinare quanto segue: "${regex}"',
+  email: "${path} deve essere un'e -mail valida",
   url: '${path} deve essere un URL valido',
-  trim: '${path} deve essere una stringa senza spazi iniziali/finali',
-  lowercase: '${path} deve essere una stringa in minuscolo',
-  uppercase: '${path} deve essere una stringa in maiuscolo',
+  uuid: '${path} deve essere un uuid valido',
+  trim: '${path} deve essere una stringa tagliata',
+  lowercase: '${path} deve essere una stringa minuscola',
+  uppercase: '${path} deve essere una stringa maiuscola',
 };
 
 export const number: LocaleObject['number'] = {
@@ -51,18 +53,21 @@ export const number: LocaleObject['number'] = {
 };
 
 export const date: LocaleObject['date'] = {
-  min: '${path} deve essere successiva al ${min}',
-  max: '${path} deve essere precedente al ${max}',
+  min: '${path} Il campo deve essere successivo di ${min}',
+  max: '${path} Il campo deve essere prima di ${max}',
 };
 
-export const boolean: LocaleObject['boolean'] = {};
+export const boolean: LocaleObject['boolean'] = {
+  isValue: '${path} Il campo deve essere ${value}',
+};
 
 export const object: LocaleObject['object'] = {
   noUnknown:
-    "${path} contiene delle chiavi non specificate nella forma dell'oggetto",
+    "${path} Il campo non può avere i tasti non specificati nella forma dell'oggetto",
 };
 
 export const array: LocaleObject['array'] = {
-  min: '${path} deve avere almeno ${min} elementi',
-  max: '${path} non deve avere più di ${max} elementi',
+  min: '${path} Il campo deve avere almeno ${min} articoli',
+  max: '${path} Il campo deve avere meno o uguale a ${max} elementi',
+  length: '${path} deve avere ${length} articoli',
 };

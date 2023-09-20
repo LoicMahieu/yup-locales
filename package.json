@@ -21,7 +21,7 @@
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "yarn build && husky install",
+    "prepare": "npm run build && husky install",
     "semantic-release": "semantic-release"
   },
   "peerDependencies": {},
@@ -34,13 +34,13 @@
   "devDependencies": {
     "@size-limit/preset-small-lib": "^7.0.8",
     "@types/jest": "^28.1.0",
-    "@types/yup": "^0.29.14",
     "@vitalets/google-translate-api": "^8.0.0",
     "fs-extra": "^10.1.0",
-    "husky": "^8.0.1",
+    "husky": "^8.0.3",
     "size-limit": "^7.0.8",
     "tsdx": "^0.14.1",
     "tslib": "^2.4.0",
-    "typescript": "^4.7.2"
+    "typescript": "^4.7.2",
+    "yup": "^1.2.0"
   }
 }

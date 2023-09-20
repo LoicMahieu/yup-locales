@@ -1,33 +1,22 @@
 /*eslint-disable no-template-curly-in-string*/
 
-import printValue from '../util/printValue';
-import { LocaleObject, FormatErrorParams } from 'yup';
+import { printValue, LocaleObject } from 'yup';
 
-const typeTranslations: { [key: string]: string } = {
-  string: 'text',
-  number: 'číslo',
-  boolean: 'boolean',
-  date: 'dátum',
-  object: 'objekt',
-  array: 'pole',
-};
-
-const getTypeTranslation = (type: string): string =>
-  typeTranslations[type] ? typeTranslations[type] : type;
-
-// Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
+// Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
-  default: '${path} je nesprávne',
-  required: '${path} je povinné pole',
+  default: '${path} je neplatný.',
+  required: '${path} je požadované pole',
+  defined: '${path} sa musí definovať',
+  notNull: '${path} nemôže byť null',
   oneOf: '${path} musí byť jednou z nasledujúcich hodnôt: ${values}',
   notOneOf: '${path} nesmie byť jednou z nasledujúcich hodnôt: ${values}',
-  notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
+  notType: ({ path, type, value, originalValue }) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
-      `${path} musí byť \`${getTypeTranslation(type)}\`, ` +
+      `${path} musí byť \`${type}\`, ` +
       `ale konečná hodnota bola: \`${printValue(value, true)}\`` +
       (isCast
-        ? ` (obsadenie z hodnoty \`${printValue(originalValue, true)}\`).`
+        ? ` (odliatok z hodnoty \`${printValue(originalValue, true)}\`).`
         : '.');
 
     if (value === null) {
@@ -41,21 +30,22 @@ export const mixed: LocaleObject['mixed'] = {
 };
 
 export const string: LocaleObject['string'] = {
-  length: '${path} musí mať presne ${length} znakov',
-  min: '${path} musí mať aspoň ${min} znakov',
-  max: '${path} musí mať najviac ${max} znakov',
+  length: '${path} musia byť presne ${length} znaky',
+  min: '${path} musia byť aspoň ${min} znaky',
+  max: '${path} musia byť nanajvýš ${max} znaky',
   matches: '${path} sa musí zhodovať s nasledujúcimi: „${regex}“',
   email: '${path} musí byť platný e -mail',
-  url: '${path} musí byť platná URL adresa ',
-  trim: '${path} nesmie začínať alebo končiť medzerou',
-  lowercase: '${path} musí obsahovať iba malé písmená',
-  uppercase: '${path} musí obsahovať iba veľké písmená',
+  url: '${path} musí byť platná adresa URL',
+  uuid: '${path} musí byť platný uuid',
+  trim: '${path} musí byť orezaný reťazec',
+  lowercase: '${path} musí byť malý reťazec',
+  uppercase: '${path} Musí to byť strun s vyšším písmom',
 };
 
 export const number: LocaleObject['number'] = {
   min: '${path} musí byť väčší alebo rovný ${min}',
-  max: '${path} musí byť menší alebo rovný ${max}',
-  lessThan: '${path} musí byť menší ako ${less}',
+  max: '${path} musí byť menšie alebo rovné ${max}',
+  lessThan: '${path} musí byť menej ako ${less}',
   moreThan: '${path} musí byť väčší ako ${more}',
   positive: '${path} musí byť kladné číslo',
   negative: '${path} musí byť záporné číslo',
@@ -63,17 +53,20 @@ export const number: LocaleObject['number'] = {
 };
 
 export const date: LocaleObject['date'] = {
-  min: '${path} musí byť po ${min}',
-  max: '${path} musí byť pred ${max}',
+  min: '${path} pole musí byť neskôr ako ${min}',
+  max: '${path} Pole musí byť skôr ako ${max}',
 };
 
-export const boolean: LocaleObject['boolean'] = {};
+export const boolean: LocaleObject['boolean'] = {
+  isValue: '${path} pole musí byť ${value}',
+};
 
 export const object: LocaleObject['object'] = {
-  noUnknown: '${path} pole nemôže mať kľúče zadané v tvare objektu',
+  noUnknown: '${path} Pole nemôže mať kľúče zadané v tvare objektu',
 };
 
 export const array: LocaleObject['array'] = {
-  min: '${path} musí obsahovať aspoň ${min} položiek',
-  max: '${path} musí obsahovať najviac ${max} položiek',
+  min: '${path} pole musí mať aspoň ${min} položky',
+  max: '${path} pole musí mať menej ako položky ${max}',
+  length: '${path} musia mať položky ${length}',
 };

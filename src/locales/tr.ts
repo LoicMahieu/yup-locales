@@ -1,26 +1,27 @@
 /*eslint-disable no-template-curly-in-string*/
 
-import printValue from '../util/printValue';
-import { LocaleObject, FormatErrorParams } from 'yup';
+import { printValue, LocaleObject } from 'yup';
 
-// Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
+// Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
-  default: '${path} geçerli değildir',
-  required: '${path} zorunlu bir alandır',
-  oneOf: '${path} bu değerlerden biri olmak zorundadır: ${values}',
-  notOneOf: '${path} bu değerlerden biri olmamalıdır.: ${values}',
-  notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
+  default: '${path} geçersiz.',
+  required: '${path} gerekli bir alandır',
+  defined: '${path} tanımlanmalıdır',
+  notNull: '${path} boş olamaz',
+  oneOf: '${path} aşağıdaki değerlerden biri olmalıdır: ${values}',
+  notOneOf: '${path} aşağıdaki değerlerden biri olmamalıdır: ${values}',
+  notType: ({ path, type, value, originalValue }) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
-      `${path}, \`${type}\`, türünde olmak zorundadır` +
-      ` fakat son değer budur: \`${printValue(value, true)}\`` +
+      `${path} \`${type}\` \`Türü olmalıdır, ` +
+      `Ancak son değer şuydu: \`${printValue(value, true)}\`` +
       (isCast
-        ? `çevirilen orjinal değer: ( \`${printValue(originalValue, true)}\`).`
+        ? ` (\`${printValue(originalValue, true)} \'değerinden döküm).`
         : '.');
 
     if (value === null) {
       msg +=
-        `\n  "null" olarak tanımlanmış ise şemayı şu şekilde işaretlediğinizden emin olun: ` +
+        `\n "NULL" boş bir değer olarak tasarlanmışsa, şemayı şöyle işaretlediğinizden emin olun` +
         ' `.nullable()`';
     }
 
@@ -29,39 +30,44 @@ export const mixed: LocaleObject['mixed'] = {
 };
 
 export const string: LocaleObject['string'] = {
-  length: '${path}, ${length} karakter olmalıdır',
-  min: '${path} en az ${min} karakter olmalıdır',
-  max: '${path} en fazla ${max} karakter olmalıdır',
-  matches: '${path}, "${regex}" ile eşleşmelidir',
-  email: '${path} geçerli bir email olmalıdır',
-  url: '${path} geçerli bir url olmalıdır',
-  trim: '${path} kırpılmış olmalıdır',
-  lowercase: '${path} küçük harflerden oluşmalıdır',
-  uppercase: '${path} büyük harflerden oluşmalıdır',
+  length: '${path} tam olarak ${length} karakterler olmalı',
+  min: '${path} en azından ${min} karakterler olmalı',
+  max: '${path} en fazla ${max} karakterler olmalı',
+  matches: '${path} aşağıdakilerle eşleşmelidir: "${regex}"',
+  email: '${path} geçerli bir e -posta olmalı',
+  url: '${path} geçerli bir URL olmalı',
+  uuid: '${path} geçerli bir UUID olmalı',
+  trim: '${path} Kesilmiş bir ip olmalı',
+  lowercase: '${path} küçük harfli bir ip olmalı',
+  uppercase: '${path} büyük harfli bir ip olmalı',
 };
 
 export const number: LocaleObject['number'] = {
-  min: '${path}, en az ${min} veya daha fazla hane olmalıdır',
-  max: '${path} en fazla ${max} veya daha az hane olmalıdır',
-  lessThan: '${path}, ${less} haneden az olmalıdır',
-  moreThan: '${path}, ${more} haneden fazla olmalıdır',
-  positive: '${path} pozitif bir sayı olmalıdır',
-  negative: '${path} negatif bir sayı olmalıdır',
-  integer: '${path} bir tamsayı olmalıdır',
+  min: "${path} ${min} 'dan büyük veya eşit olmalıdır.",
+  max: "${path} ${max} 'dan az veya eşit olmalıdır.",
+  lessThan: "${path} ${less} 'dan daha az olmalıdır",
+  moreThan: "${path} ${more} 'dan daha büyük olmalıdır",
+  positive: '${path} pozitif bir sayı olmalı',
+  negative: '${path} negatif bir sayı olmalı',
+  integer: '${path} bir tamsayı olmalı',
 };
 
 export const date: LocaleObject['date'] = {
-  min: '${path}, ${min} tarihinden ileri bir tarih olmalıdır',
-  max: '${path}, ${max} tarihinden önce bir tarih olmalıdır',
+  min: "${path} Alan ${min} 'dan daha geç olmalıdır",
+  max: "${path} Alan ${max} 'dan daha erken olmalıdır.",
 };
 
-export const boolean: LocaleObject['boolean'] = {};
+export const boolean: LocaleObject['boolean'] = {
+  isValue: '${path} Alan ${value} olmalıdır',
+};
 
 export const object: LocaleObject['object'] = {
-  noUnknown: '${path} alanında nesne olmayan değerler bulunamaz',
+  noUnknown:
+    '${path} Alan, nesne şeklinde belirtilmeyen anahtarlara sahip olamaz',
 };
 
 export const array: LocaleObject['array'] = {
-  min: '${path}, en az ${min} eleman içermelidir',
-  max: '${path}, en fazla ${max} eleman içermelidir',
+  min: '${path} Alanın en az ${min} öğeleri olmalı',
+  max: '${path} Alanın ${max} öğelere eşit veya daha az olması gerekir',
+  length: '${path} ${length} öğeleri olmalı',
 };

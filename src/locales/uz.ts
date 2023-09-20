@@ -1,23 +1,26 @@
 /*eslint-disable no-template-curly-in-string*/
 
-import printValue from '../util/printValue';
-import { LocaleObject, FormatErrorParams } from 'yup';
+import { printValue, LocaleObject } from 'yup';
 
-// Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
+// Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
-  default: '${path}da xatolik mavjud',
-  required: "${path} maydoniga ma'lumot kiritilmagan",
-  oneOf: '${path} maydoni ${values} qiymatlardan bittasi emas',
-  notOneOf: '${path} maydoni ${values} qiymatlarini qabul qilmaydi',
-  notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
+  default: '${path} yaroqsiz.',
+  required: '${path} - bu majburiy maydon',
+  defined: '${path} aniqlanishi kerak',
+  notNull: "${path} null bo'lolmaydi",
+  oneOf: "${path} quyidagi qiymatlardan biri bo'lishi kerak: ${values}",
+  notOneOf: "${path} quyidagi qiymatlardan biri bo'lmasligi kerak: ${values}",
+  notType: ({ path, type, value, originalValue }) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
-      `${path} maydon \`${type}\` turiga tegishli emas. ` +
-      (isCast ? `\`${printValue(originalValue, true)}\` dan olingan o` : 'O') +
-      `xirgi qiymat \`${printValue(value, true)}\` ga teng.`;
+      `${path} a "${type}\` to, ` +
+      `Ammo yakuniy qiymat: \'${printValue(value, true)} \`` +
+      (isCast ? ` (\`${printValue(originalValue, true)} qiymatidan).` : '.');
 
     if (value === null) {
-      msg += `\n Agar "null" bo‘sh qiymat bo‘lsa, sxemada \`.nullable()\` qilib belgilanganligiga ishonch hosil qiling`;
+      msg +=
+        `\n Agar "null" bo\'sh qiymat sifatida mo\'ljallangan bo\'lsa, buxorni belgilang` +
+        ' `.nullable()`';
     }
 
     return msg;
@@ -25,41 +28,45 @@ export const mixed: LocaleObject['mixed'] = {
 };
 
 export const string: LocaleObject['string'] = {
-  length: '${path} maydoni ${length}ta belgidan iborat emas',
-  min: '${path} maydoni kamida ${min}ta belgidan iborat bo‘lishi lozim',
-  max: '${path} maydoni ko‘pi bilan ${max}ta belgidan iborat bo‘lishi mumkin',
-  matches: '${path} maydon qiymati "${regex}" muntazam ifodaga mos emas',
-  email: '${path} maydon qiymati e-mail emas',
-  url: '${path} maydon qiymati havola emas',
-  trim: '${path} mayqon qiymati boshida yoki oxirida bo‘shliqlar mavjud',
-  lowercase: '${path} mayqon qiymat kichik harflardan iborat emas',
-  uppercase: '${path} mayqon qiymat bosh (katta) harflardan iborat emas',
+  length: "${path} aniq ${length} belgilar bo'lishi kerak",
+  min: "${path} hech bo'lmaganda ${min} belgilar bo'lishi kerak",
+  max: "${path} ko'pchilik ${max} belgilar bo'lishi kerak",
+  matches: '${path} quyidagilarga mos kelishi kerak: "${regex}"',
+  email: "${path} to'g'ri elektron pochta bo'lishi kerak",
+  url: "${path} yaroqli url bo'lishi kerak",
+  uuid: "${path} haqiqiy uuid bo'lishi kerak",
+  trim: "${path} qirqilgan satr bo'lishi kerak",
+  lowercase: "${path} kichik harfli satr bo'lishi kerak",
+  uppercase: "${path} katta satr bo'lishi kerak",
 };
 
 export const number: LocaleObject['number'] = {
-  min: '${path} maydon qiymati ${min}dan kichik',
-  max: '${path} maydon qiymati ${max}dan katta',
-  lessThan: '${path} maydon qiymati ${less}dan kichik emas',
-  moreThan: '${path} maydon qiymati ${more}dan katta emas',
-  positive: '${path} maydon qiymati musbat son emas',
-  negative: '${path} maydon qiymati manfiy son emas',
-  integer: '${path} maydon qiymati butun son emas',
+  min: "${path} ${min} dan katta yoki teng bo'lishi kerak]",
+  max: "${path} dan kam yoki unga teng bo'lishi kerak ${max}",
+  lessThan: "${path} dan kamroq bo'lishi kerak ${less}",
+  moreThan: "${path} dan katta bo'lishi kerak ${more}",
+  positive: "${path} ijobiy raqam bo'lishi kerak",
+  negative: "${path} Salbiy raqam bo'lishi kerak",
+  integer: "${path} butun son bo'lishi kerak",
 };
 
 export const date: LocaleObject['date'] = {
-  min: '${path} maydon qiymati ${min} sanandan oldin bo‘lmasligi lozim',
-  max: '${path} maydon qiymati ${max} sanadan keyin bo‘lmasligi lozim',
+  min: "${path} dalasi ${min} dan keyinroq bo'lishi kerak",
+  max: "${path} Maydon ${max} dan avvalroq bo'lishi kerak]",
 };
 
 export const boolean: LocaleObject['boolean'] = {
-  isValue: '${path} maydon qiymati ${value} bo‘lishi shart',
+  isValue: '${path} Maydon ${value}',
 };
 
 export const object: LocaleObject['object'] = {
-  noUnknown: "${path} maydon qiymatida noma'lum kalitlar mavjud",
+  noUnknown:
+    "${path} maydon ob'ekt shaklida ko'rsatilmagan kalitlarga ega bo'lolmaydi",
 };
 
 export const array: LocaleObject['array'] = {
-  min: '${path} maydon kamida ${min}ta elementdan iborat bo‘lishi lozim',
-  max: '${path} maydon ko‘pi bilan ${max} elementdan iborat bo‘lishi mumkin',
+  min: "${path} Maydon kamida ${min} elementlari bo'lishi kerak",
+  max:
+    "${path} Maydon ${max} elementlarga qaraganda kam yoki teng bo'lishi kerak",
+  length: '${path} ${length}',
 };

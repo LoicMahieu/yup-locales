@@ -1,26 +1,27 @@
 /*eslint-disable no-template-curly-in-string*/
 
-import printValue from '../util/printValue';
-import { LocaleObject, FormatErrorParams } from 'yup';
+import { printValue, LocaleObject } from 'yup';
 
-// Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
+// Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
   default: '${path} er ugyldig.',
-  required: '${path} er et nødvendig felt',
-  oneOf: '${path} må være en av de følgende verdier: ${values}',
-  notOneOf: '${path} må ikke være en av de følgende verdier: ${values}',
-  notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
+  required: '${path} er et påkrevd felt',
+  defined: '${path} må defineres',
+  notNull: '${path} kan ikke være null',
+  oneOf: '${path} må være en av følgende verdier: ${values}',
+  notOneOf: '${path} Må ikke være en av følgende verdier: ${values}',
+  notType: ({ path, type, value, originalValue }) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
-      `${path} må være en \`${type}\` typen, ` +
-      `men den endelige verdien var: \`${printValue(value, true)}\`` +
+      `${path} må være en \`${type}\` type, ` +
+      `Men den endelige verdien var: \`${printValue(value, true)}\`` +
       (isCast
         ? ` (støpt fra verdien \`${printValue(originalValue, true)}\`).`
         : '.');
 
     if (value === null) {
       msg +=
-        `\n Hvis "null" er ment som en tom verdi sørg for å markere skjemaet som` +
+        `\n Hvis "null" er ment som en tom verdi, må du huske å markere skjemaet som` +
         ' `.nullable()`';
     }
 
@@ -31,13 +32,14 @@ export const mixed: LocaleObject['mixed'] = {
 export const string: LocaleObject['string'] = {
   length: '${path} må være nøyaktig ${length} tegn',
   min: '${path} må være minst ${min} tegn',
-  max: '${path} må være mest ${max} tegn',
+  max: '${path} må være på det meste ${max} tegn',
   matches: '${path} må samsvare med følgende: "${regex}"',
-  email: '${path} må være en gyldig e-post',
-  url: '${path} må være en gyldig nettadresse',
+  email: '${path} må være en gyldig e -post',
+  url: '${path} må være en gyldig url',
+  uuid: '${path} må være en gyldig UUID',
   trim: '${path} må være en trimmet streng',
-  lowercase: '${path} må være i små bokstaver',
-  uppercase: '${path} må være i store bokstaver',
+  lowercase: '${path} må være en småstreng',
+  uppercase: '${path} Må være en store bokstavstreng',
 };
 
 export const number: LocaleObject['number'] = {
@@ -51,18 +53,21 @@ export const number: LocaleObject['number'] = {
 };
 
 export const date: LocaleObject['date'] = {
-  min: '${path} feltet må være senere enn ${min}',
-  max: '${path} feltet må være tidligere enn ${max}',
+  min: '${path} Feltet må være senere enn ${min}',
+  max: '${path} Feltet må være tidligere enn ${max}',
 };
 
-export const boolean: LocaleObject['boolean'] = {};
+export const boolean: LocaleObject['boolean'] = {
+  isValue: '${path} Feltet må være ${value}',
+};
 
 export const object: LocaleObject['object'] = {
   noUnknown:
-    '${path} felt kan ikke har nøkler som ikke er spesifisert i objektet form',
+    '${path} Felt kan ikke ha nøkler som ikke er spesifisert i objektformen',
 };
 
 export const array: LocaleObject['array'] = {
-  min: '${path} feltet må ha minst ${min} elementer',
-  max: '${path} feltet må ha mindre enn eller lik ${max} elementer',
+  min: '${path} Feltet må ha minst ${min} elementer',
+  max: '${path} Feltet må ha mindre enn eller lik ${max} elementer',
+  length: '${path} må ha ${length} elementer',
 };

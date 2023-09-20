@@ -8,6 +8,11 @@ const dest = join(__dirname, '../src/locales');
 const run = async () => {
   const locale = process.argv[2];
 
+  if (!locale) {
+    console.error('Please provide a locale to create');
+    process.exit(1);
+  }
+
   console.log(`Create locale file for \`${locale}\`...`);
 
   await writeFile(
@@ -20,6 +25,8 @@ const run = async () => {
       parser: 'typescript',
     })
   );
+
+  console.log(`Locale file for \`${locale}\` created!`);
 };
 
 const translateLocale = async to => {
@@ -49,32 +56,33 @@ const translateLocale = async to => {
   return `
 /*eslint-disable no-template-curly-in-string*/
 
-import printValue from '../util/printValue';
-import { LocaleObject, FormatErrorParams } from 'yup';
+import { printValue, LocaleObject } from 'yup';
 
-// Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
+// Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
   default: '${await t('${path} is invalid.')}',
   required: '${await t('${path} is a required field')}',
+  defined: '${await t('${path} must be defined')}',
+  notNull: '${await t('${path} cannot be null')}',
   oneOf: '${await t('${path} must be one of the following values: ${values}')}',
   notOneOf: '${await t(
     '${path} must not be one of the following values: ${values}'
   )}',
-  notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
+  notType: ({ path, type, value, originalValue }) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
       \`${await t('${path} must be a `${type}` type')}, \` +
       \`${await t('but the final value was: `${printValue(value, true)}`')}\` +
       (isCast
         ? \` (${await t(
-          'cast from the value `${printValue(originalValue, true)}`'
-        )}).\`
+    'cast from the value `${printValue(originalValue, true)}`'
+  )}).\`
         : '.');
 
     if (value === null) {
       msg += \`\\n ${await t(
-        'If "null" is intended as an empty value be sure to mark the schema as'
-      )}\` + ' \`.nullable()\`';
+    'If "null" is intended as an empty value be sure to mark the schema as'
+  )}\` + ' \`.nullable()\`';
     }
 
     return msg;
@@ -88,6 +96,7 @@ export const string: LocaleObject["string"] = {
   matches: '${await t('${path} must match the following: "${regex}"')}',
   email: '${await t('${path} must be a valid email')}',
   url: '${await t('${path} must be a valid URL')}',
+  uuid: '${await t('${path} must be a valid UUID')}',
   trim: '${await t('${path} must be a trimmed string')}',
   lowercase: '${await t('${path} must be a lowercase string')}',
   uppercase: '${await t('${path} must be a upper case string')}',
@@ -108,7 +117,9 @@ export const date: LocaleObject["date"] = {
   max: '${await t('${path} field must be at earlier than ${max}')}',
 };
 
-export const boolean: LocaleObject["boolean"] = {};
+export const boolean: LocaleObject["boolean"] = {
+  isValue: '${await t('${path} field must be ${value}')}',
+};
 
 export const object: LocaleObject["object"] = {
   noUnknown: '${await t(
@@ -121,6 +132,7 @@ export const array: LocaleObject["array"] = {
   max: '${await t(
     '${path} field must have less than or equal to ${max} items'
   )}',
+  length: '${await t('${path} must have ${length} items')}',
 };
 `;
 };
