@@ -1,7 +1,5 @@
 /*eslint-disable no-template-curly-in-string*/
-
-import printValue from '../util/printValue';
-import { LocaleObject, FormatErrorParams } from 'yup';
+import { printValue, LocaleObject } from 'yup';
 
 // Based on https://github.com/jquense/yup/blob/2973d0a/src/locale.js
 export const mixed: LocaleObject['mixed'] = {
@@ -9,7 +7,7 @@ export const mixed: LocaleObject['mixed'] = {
   required: '${path} 是必需的字段',
   oneOf: '${path} 必須是以下值之一： ${values}',
   notOneOf: '${path} 不能是以下值之一：${values}',
-  notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
+  notType: ({ path, type, value, originalValue }) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
       `${path} 必須是\`${type}, ` +

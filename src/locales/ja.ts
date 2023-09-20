@@ -1,5 +1,4 @@
-import { LocaleObject } from 'yup';
-import printValue from '../util/printValue';
+import { printValue, LocaleObject } from 'yup';
 
 const mixed: LocaleObject['mixed'] = {
   default: ({ path }) => `${path}は正しくありません。`,
