@@ -18,6 +18,7 @@ import * as cs from './locales/cs';
 import * as uz from './locales/uz';
 import * as vi from './locales/vi';
 import * as zh from './locales/zh';
+import * as zhtw from './locales/zhtw';
 import * as th from './locales/th';
 import * as ja from './locales/ja';
 
@@ -44,4 +45,5 @@ export {
   zh,
   th,
   ja,
+  zhtw,
 };

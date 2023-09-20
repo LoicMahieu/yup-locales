@@ -42,6 +42,7 @@ Locales implemented:
 - `zh`
 - `th`
 - `ja`
+- `zh-tw`
 
 Please submit a PR with a new locale if you need it. In order to create a new locale, you could translate it automatically with `node scripts/create-locale` which will use google translate.
 
