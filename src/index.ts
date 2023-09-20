@@ -19,6 +19,7 @@ import * as uz from './locales/uz';
 import * as vi from './locales/vi';
 import * as zh from './locales/zh';
 import * as th from './locales/th';
+import * as ja from './locales/ja';
 
 export {
   ar,
@@ -42,4 +43,5 @@ export {
   vi,
   zh,
   th,
+  ja,
 };
