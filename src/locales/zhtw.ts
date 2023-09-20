@@ -12,9 +12,9 @@ export const mixed: LocaleObject['mixed'] = {
   notType: ({ path, type, value, originalValue }: FormatErrorParams) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
-        `${path} 必須是\`${type}, ` +
-        `但最終值是：\`${printValue(value, true)}\`\`` +
-        (isCast ? ` (從值\`${printValue(originalValue, true)}\`\`\`\'\').` : '.');
+      `${path} 必須是\`${type}, ` +
+      `但最終值是：\`${printValue(value, true)}\`\`` +
+      (isCast ? ` (從值\`${printValue(originalValue, true)}\`\`\`\'\').` : '.');
 
     if (value === null) {
       msg += `\n 如果“ null”是為空值，請確保將架構標記為` + ' `.nullable()`';
