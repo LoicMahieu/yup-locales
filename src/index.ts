@@ -1,4 +1,5 @@
 import * as ar from './locales/ar';
+import * as bs from './locales/bs';
 import * as da from './locales/da';
 import * as de from './locales/de';
 import * as es from './locales/es';
@@ -21,9 +22,11 @@ import * as zh from './locales/zh';
 import * as zhtw from './locales/zhtw';
 import * as th from './locales/th';
 import * as ja from './locales/ja';
+import * as ko from './locales/ko';
 
 export {
   ar,
+  bs,
   da,
   de,
   es,
@@ -46,4 +49,5 @@ export {
   th,
   ja,
   zhtw,
+  ko,
 };
