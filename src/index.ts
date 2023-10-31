@@ -22,6 +22,7 @@ import * as zh from './locales/zh';
 import * as zhtw from './locales/zhtw';
 import * as th from './locales/th';
 import * as ja from './locales/ja';
+import * as ko from './locales/ko';
 
 export {
   ar,
@@ -48,4 +49,5 @@ export {
   th,
   ja,
   zhtw,
+  ko,
 };
