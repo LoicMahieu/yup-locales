@@ -1,12 +1,12 @@
 import { printValue, LocaleObject } from 'yup';
 
 export const mixed: LocaleObject['mixed'] = {
-  default: '항목이 올바르지 않습니다.',
-  required: '항목은 필수입니다.',
-  defined: '항목 값이 정의되어야 합니다.',
-  notNull: '항목은 null일수 없습니다.',
-  oneOf: '항목은 다음 값중 하나여야 합니다: ${values}',
-  notOneOf: '항목은 다음 값이 아니여야 합니다: ${values}',
+  default: '${path} 항목이 올바르지 않습니다.',
+  required: '${path} 항목은 필수입니다.',
+  defined: '${path} 항목 값이 정의되어야 합니다.',
+  notNull: '${path} 항목은 null일수 없습니다.',
+  oneOf: '${path} 항목은 다음 값중 하나여야 합니다: ${values}',
+  notOneOf: '${path} 항목은 다음 값이 아니여야 합니다: ${values}',
   notType: ({ path, type, value, originalValue }) => {
     const castMsg =
       originalValue != null && originalValue !== value
