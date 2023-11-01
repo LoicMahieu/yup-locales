@@ -21,6 +21,7 @@ setLocale(fr);
 Locales implemented:
 
 - `ar`
+- `bs`
 - `da`
 - `de`
 - `es`
