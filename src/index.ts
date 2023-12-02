@@ -2,6 +2,7 @@ import * as ar from './locales/ar';
 import * as bs from './locales/bs';
 import * as da from './locales/da';
 import * as de from './locales/de';
+import * as en from './locales/en';
 import * as es from './locales/es';
 import * as fr from './locales/fr';
 import * as he from './locales/he';
@@ -29,6 +30,7 @@ export {
   bs,
   da,
   de,
+  en,
   es,
   fr,
   he,
