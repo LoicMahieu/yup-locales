@@ -24,6 +24,7 @@ Locales implemented:
 - `bs`
 - `da`
 - `de`
+- `en`
 - `es`
 - `fr`
 - `he`
