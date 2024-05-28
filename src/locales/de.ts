@@ -62,8 +62,7 @@ export const boolean: LocaleObject['boolean'] = {
 };
 
 export const object: LocaleObject['object'] = {
-  noUnknown:
-    '${path} kann keine unbekannten Werte enthalten',
+  noUnknown: '${path} kann keine unbekannten Werte enthalten',
 };
 
 export const array: LocaleObject['array'] = {
