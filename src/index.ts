@@ -1,5 +1,7 @@
 import * as ar from './locales/ar';
+import * as bg from './locales/bg';
 import * as bs from './locales/bs';
+import * as cs from './locales/cs';
 import * as da from './locales/da';
 import * as de from './locales/de';
 import * as en from './locales/en';
@@ -8,26 +10,27 @@ import * as fr from './locales/fr';
 import * as he from './locales/he';
 import * as id from './locales/id';
 import * as it from './locales/it';
+import * as ja from './locales/ja';
+import * as ko from './locales/ko';
+import * as lt from './locales/lt';
 import * as nb from './locales/nb';
 import * as nl from './locales/nl';
-import * as pt from './locales/pt';
-import * as tr from './locales/tr';
-import * as lt from './locales/lt';
 import * as pl from './locales/pl';
-import * as sk from './locales/sk';
+import * as pt from './locales/pt';
 import * as ru from './locales/ru';
-import * as cs from './locales/cs';
+import * as sk from './locales/sk';
+import * as th from './locales/th';
+import * as tr from './locales/tr';
 import * as uz from './locales/uz';
 import * as vi from './locales/vi';
 import * as zh from './locales/zh';
 import * as zhtw from './locales/zhtw';
-import * as th from './locales/th';
-import * as ja from './locales/ja';
-import * as ko from './locales/ko';
 
 export {
   ar,
+  bg,
   bs,
+  cs,
   da,
   de,
   en,
@@ -36,20 +39,19 @@ export {
   he,
   id,
   it,
+  ja,
+  ko,
+  lt,
   nb,
   nl,
-  pt,
-  tr,
-  lt,
   pl,
-  sk,
+  pt,
   ru,
-  cs,
+  sk,
+  th,
+  tr,
   uz,
   vi,
   zh,
-  th,
-  ja,
   zhtw,
-  ko,
 };
