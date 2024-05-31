@@ -34,7 +34,7 @@ export const string: LocaleObject['string'] = {
   min: '${path} musí být alespoň ${min} znaky',
   max: '${path} musí být nejvýše ${max} znaky',
   matches: '${path} musí odpovídat následujícím: „${regex}“',
-  email: '${path} Musí to být platný e -mail',
+  email: '${path} Musí to být platný e-mail',
   url: '${path} musí být platná adresa URL',
   uuid: '${path} musí být platný uuid',
   trim: '${path} musí být oříznutá řetězec',

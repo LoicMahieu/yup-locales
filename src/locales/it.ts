@@ -34,7 +34,7 @@ export const string: LocaleObject['string'] = {
   min: '${path} deve essere almeno ${min} caratteri',
   max: '${path} deve essere al massimo ${max} caratteri',
   matches: '${path} deve abbinare quanto segue: "${regex}"',
-  email: "${path} deve essere un'e -mail valida",
+  email: "${path} deve essere un'e-mail valida",
   url: '${path} deve essere un URL valido',
   uuid: '${path} deve essere un uuid valido',
   trim: '${path} deve essere una stringa tagliata',
