@@ -34,7 +34,7 @@ export const string: LocaleObject['string'] = {
   min: '${path} skal være mindst ${min} tegn',
   max: '${path} skal højst være ${max} tegn',
   matches: '${path} skal matche følgende: "${regex}"',
-  email: '${path} skal være en gyldig e -mail',
+  email: '${path} skal være en gyldig e-mail',
   url: '${path} skal være en gyldig URL',
   uuid: '${path} skal være en gyldig UUID',
   trim: '${path} skal være en trimmet streng',
