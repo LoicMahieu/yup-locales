@@ -4,7 +4,7 @@ import { printValue, LocaleObject } from 'yup';
 
 // Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
-  default: '${path} недійсне.',
+  default: '${path} недійсне',
   required: '${path} - це необхідне поле',
   defined: '${path} потрібно визначити',
   notNull: '${path} не може бути нульовим',
@@ -14,14 +14,14 @@ export const mixed: LocaleObject['mixed'] = {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
       `${path} повинен бути \`${type}\` тип, ` +
-      `Але остаточне значення було: \`${printValue(value, true)}\` \`` +
+      `але остаточне значення було: \`${printValue(value, true)}\`` +
       (isCast
         ? ` (відігравати зі значення \`${printValue(originalValue, true)}\`).`
         : '.');
 
     if (value === null) {
       msg +=
-        `\n Якщо "null" призначений як порожнє значення, обов\'язково позначте схему як` +
+        `\n Якщо "null" призначений як порожнє значення, обов'язково позначте схему як` +
         ' `.nullable()`';
     }
 
@@ -47,26 +47,26 @@ export const number: LocaleObject['number'] = {
   max: '${path} повинен бути меншим або рівним ${max}',
   lessThan: '${path} повинен бути менше ${less}',
   moreThan: '${path} повинен бути більшим, ніж ${more}',
-  positive: '${path} повинен бути додатковим числом',
-  negative: '${path} повинен бути негативним числом',
+  positive: '${path} повинен бути додатним числом',
+  negative: "${path} повинен бути від'ємним числом",
   integer: '${path} повинно бути цілим числом',
 };
 
 export const date: LocaleObject['date'] = {
-  min: '${path} Поле повинно бути пізніше ${min}',
-  max: '${path} Поле повинно бути раніше ${max}',
+  min: '${path} поле повинно бути пізніше ${min}',
+  max: '${path} поле повинно бути раніше ${max}',
 };
 
 export const boolean: LocaleObject['boolean'] = {
-  isValue: '${path} Поле повинно бути ${value}',
+  isValue: '${path} поле повинно бути ${value}',
 };
 
 export const object: LocaleObject['object'] = {
-  noUnknown: "${path} Поле не може мати клавіш, не вказані у формі об'єкта",
+  noUnknown: "${path} поле не може мати клавіш, не вказані у формі об'єкта",
 };
 
 export const array: LocaleObject['array'] = {
-  min: '${path} Поле повинно мати принаймні ${min} пункти',
-  max: '${path} Поле повинно мати менше або дорівнює ${max} предметам',
+  min: '${path} поле повинно мати принаймні ${min} пункти',
+  max: '${path} поле повинно мати менше або дорівнює ${max} предметам',
   length: '${path} повинні мати ${length} пункти',
 };
