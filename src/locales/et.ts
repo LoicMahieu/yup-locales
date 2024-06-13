@@ -4,24 +4,24 @@ import { printValue, LocaleObject } from 'yup';
 
 // Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
-  default: '${path} on kehtetu.',
+  default: '${path} on kehtetu',
   required: '${path} on nõutav väli',
   defined: '${path} tuleb määratleda',
-  notNull: '${path} ei saa olla null',
+  notNull: '${path} ei tohi olla null',
   oneOf: '${path} peab olema üks järgmistest väärtustest: ${values}',
   notOneOf: '${path} ei tohi olla üks järgmistest väärtustest: ${values}',
   notType: ({ path, type, value, originalValue }) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
       `${path} peab olema \`${type}\` tüüp, ` +
-      `Kuid lõppväärtus oli: \`${printValue(value, true)}\`` +
+      `kuid lõppväärtus oli: \`${printValue(value, true)}\`` +
       (isCast
         ? ` (valatud väärtusest \`${printValue(originalValue, true)}\`).`
         : '.');
 
     if (value === null) {
       msg +=
-        `\n Kui "null" on mõeldud tühjaks väärtuseks, märkige skeem kindlasti kui` +
+        `\nKui "null" on mõeldud tühjaks väärtuseks, märkige skeem kindlasti kui` +
         ' `.nullable()`';
     }
 
@@ -30,16 +30,16 @@ export const mixed: LocaleObject['mixed'] = {
 };
 
 export const string: LocaleObject['string'] = {
-  length: '${path} peab olema täpselt ${length} tegelased',
-  min: '${path} peab olema vähemalt ${min} tegelased',
-  max: '${path} peab olema maksimaalselt ${max} tegelased',
+  length: '${path} peab olema täpselt ${length} tähemärki',
+  min: '${path} peab olema vähemalt ${min} tähemärki',
+  max: '${path} peab olema maksimaalselt ${max} tähemärki',
   matches: '${path} peab vastama järgmisele: "${regex}"',
-  email: '${path} peab olema kehtiv e -kiri',
+  email: '${path} peab olema kehtiv e-kiri',
   url: '${path} peab olema kehtiv URL',
   uuid: '${path} peab olema kehtiv UUID',
   trim: '${path} peab olema kärbitud string',
-  lowercase: '${path} peab olema väiketäht',
-  uppercase: '${path} peab olema peamine nööri',
+  lowercase: '${path} peab olema väiketähtedes',
+  uppercase: '${path} peab olema suurtähtedes',
 };
 
 export const number: LocaleObject['number'] = {
@@ -53,21 +53,21 @@ export const number: LocaleObject['number'] = {
 };
 
 export const date: LocaleObject['date'] = {
-  min: '${path} väli peab olema hilisem kui ${min}',
-  max: '${path} väli peab olema varasem kui ${max}',
+  min: '${path} peab olema hilisem kui ${min}',
+  max: '${path} peab olema varasem kui ${max}',
 };
 
 export const boolean: LocaleObject['boolean'] = {
-  isValue: '${path} väli peab olema ${value}',
+  isValue: '${path} peab olema ${value}',
 };
 
 export const object: LocaleObject['object'] = {
   noUnknown:
-    '${path} väljal ei saa olla võtmeid, mis pole objekti kujus täpsustatud',
+    '${path} ei tohi sisaldada võtmeid, mis pole objekti kujus täpsustatud',
 };
 
 export const array: LocaleObject['array'] = {
-  min: '${path} väljal peavad olema vähemalt ${min} esemed',
-  max: '${path} väljal peab olema vähem või võrdne ${max} esemetega',
-  length: '${path} peavad olema ${length} esemed',
+  min: '${path} peab sisaldama vähemalt ${min} eset',
+  max: '${path} võib sisaldada maksimaalselt ${max} eset',
+  length: '${path} peab sisaldama täpselt ${length} eset',
 };
