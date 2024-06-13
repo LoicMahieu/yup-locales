@@ -4,17 +4,17 @@ import { printValue, LocaleObject } from 'yup';
 
 // Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
-  default: '${path} er ugyldig.',
+  default: '${path} er ugyldig',
   required: '${path} er et påkrevd felt',
   defined: '${path} må defineres',
   notNull: '${path} kan ikke være null',
   oneOf: '${path} må være en av følgende verdier: ${values}',
-  notOneOf: '${path} Må ikke være en av følgende verdier: ${values}',
+  notOneOf: '${path} må ikke være en av følgende verdier: ${values}',
   notType: ({ path, type, value, originalValue }) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
       `${path} må være en \`${type}\` type, ` +
-      `Men den endelige verdien var: \`${printValue(value, true)}\`` +
+      `men den endelige verdien var: \`${printValue(value, true)}\`` +
       (isCast
         ? ` (støpt fra verdien \`${printValue(originalValue, true)}\`).`
         : '.');
@@ -34,12 +34,12 @@ export const string: LocaleObject['string'] = {
   min: '${path} må være minst ${min} tegn',
   max: '${path} må være på det meste ${max} tegn',
   matches: '${path} må samsvare med følgende: "${regex}"',
-  email: '${path} må være en gyldig e -post',
-  url: '${path} må være en gyldig url',
+  email: '${path} må være en gyldig e-post',
+  url: '${path} må være en gyldig URL',
   uuid: '${path} må være en gyldig UUID',
   trim: '${path} må være en trimmet streng',
-  lowercase: '${path} må være en småstreng',
-  uppercase: '${path} Må være en store bokstavstreng',
+  lowercase: '${path} må være små bokstaver',
+  uppercase: '${path} må være store bokstaver',
 };
 
 export const number: LocaleObject['number'] = {
@@ -53,21 +53,21 @@ export const number: LocaleObject['number'] = {
 };
 
 export const date: LocaleObject['date'] = {
-  min: '${path} Feltet må være senere enn ${min}',
-  max: '${path} Feltet må være tidligere enn ${max}',
+  min: '${path} feltet må være senere enn ${min}',
+  max: '${path} feltet må være tidligere enn ${max}',
 };
 
 export const boolean: LocaleObject['boolean'] = {
-  isValue: '${path} Feltet må være ${value}',
+  isValue: '${path} feltet må være ${value}',
 };
 
 export const object: LocaleObject['object'] = {
   noUnknown:
-    '${path} Felt kan ikke ha nøkler som ikke er spesifisert i objektformen',
+    '${path} felt kan ikke ha nøkler som ikke er spesifisert i objektformen',
 };
 
 export const array: LocaleObject['array'] = {
-  min: '${path} Feltet må ha minst ${min} elementer',
-  max: '${path} Feltet må ha mindre enn eller lik ${max} elementer',
+  min: '${path} feltet må ha minst ${min} elementer',
+  max: '${path} feltet må ha mindre enn eller lik ${max} elementer',
   length: '${path} må ha ${length} elementer',
 };
