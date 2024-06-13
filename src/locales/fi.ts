@@ -4,7 +4,7 @@ import { printValue, LocaleObject } from 'yup';
 
 // Based on https://github.com/jquense/yup/blob/b940eef48eb7456622ae384d0ffa7363d4fbad25/src/locale.ts
 export const mixed: LocaleObject['mixed'] = {
-  default: '${path} on virheellinen.',
+  default: '${path} on virheellinen',
   required: '${path} on vaadittu kenttä',
   defined: '${path} on määriteltävä',
   notNull: '${path} ei voi olla tyhjä',
@@ -14,14 +14,14 @@ export const mixed: LocaleObject['mixed'] = {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
       `${path} on oltava \`${type}\` tyyppi, ` +
-      `Mutta lopullinen arvo oli: \`${printValue(value, true)}\` \`` +
+      `mutta lopullinen arvo oli: \`${printValue(value, true)}\`` +
       (isCast
-        ? ` (valettu arvosta \`${printValue(originalValue, true)}\` \`).`
+        ? ` (muunnettu arvosta \`${printValue(originalValue, true)}\`).`
         : '.');
 
     if (value === null) {
       msg +=
-        `\n Jos "nolla" on tarkoitettu tyhjäksi arvoksi, muista merkitä kaavio` +
+        `\n Jos "null" on tarkoitettu tyhjäksi arvoksi, muista merkitä skeema` +
         ' `.nullable()`';
     }
 
@@ -30,16 +30,16 @@ export const mixed: LocaleObject['mixed'] = {
 };
 
 export const string: LocaleObject['string'] = {
-  length: '${path} on oltava tarkalleen ${length} merkkejä',
-  min: '${path} on oltava ainakin ${min} merkkejä',
-  max: '${path} on oltava korkeintaan ${max} merkkejä',
+  length: '${path} on oltava tarkalleen ${length} merkkiä',
+  min: '${path} on oltava ainakin ${min} merkkiä',
+  max: '${path} on oltava korkeintaan ${max} merkkiä',
   matches: '${path} on vastattava seuraavaa: "${regex}"',
   email: '${path} on oltava kelvollinen sähköposti',
-  url: '${path} on oltava kelvollinen URL -osoite',
+  url: '${path} on oltava kelvollinen URL-osoite',
   uuid: '${path} on oltava kelvollinen UUID',
   trim: '${path} on oltava leikattu merkkijono',
-  lowercase: '${path} on oltava pieni merkkijono',
-  uppercase: '${path} on oltava isot merkkijono',
+  lowercase: '${path} on oltava pienillä kirjaimilla',
+  uppercase: '${path} on oltava isoilla kirjaimilla',
 };
 
 export const number: LocaleObject['number'] = {
@@ -67,7 +67,7 @@ export const object: LocaleObject['object'] = {
 };
 
 export const array: LocaleObject['array'] = {
-  min: '${path} kentällä on oltava vähintään ${min} kohteita',
-  max: '${path} kentällä on oltava vähemmän tai yhtä suuret kuin ${max}',
-  length: '${path} on oltava ${length} esineitä',
+  min: '${path} kentällä on oltava vähintään ${min} kohdetta',
+  max: '${path} kentällä on oltava enintään ${max} kohdetta',
+  length: '${path} on oltava tarkalleen ${length} kohdetta',
 };
