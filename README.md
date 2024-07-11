@@ -37,6 +37,7 @@ Locales implemented:
 - `lt`
 - `pl`
 - `sk`
+- `ro`
 - `ru`
 - `cs`
 - `uz`

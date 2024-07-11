@@ -25,6 +25,7 @@ import * as uz from './locales/uz';
 import * as vi from './locales/vi';
 import * as zh from './locales/zh';
 import * as zhtw from './locales/zhtw';
+import * as ro from './locales/ro';
 
 export {
   ar,
@@ -46,6 +47,7 @@ export {
   nl,
   pl,
   pt,
+  ro,
   ru,
   sk,
   th,
