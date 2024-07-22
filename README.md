@@ -21,32 +21,37 @@ setLocale(fr);
 Locales implemented:
 
 - `ar`
+- `bg`
 - `bs`
+- `cs`
 - `da`
 - `de`
 - `en`
 - `es`
+- `et`
+- `fi`
 - `fr`
 - `he`
 - `id`
 - `it`
+- `ja`
+- `ko`
+- `lt`
 - `nb`
 - `nl`
-- `pt`
-- `tr`
-- `lt`
 - `pl`
-- `sk`
+- `pt`
 - `ro`
 - `ru`
-- `cs`
+- `sk`
+- `sv`
+- `th`
+- `tr`
+- `uk`
 - `uz`
 - `vi`
 - `zh`
-- `th`
-- `ja`
-- `zh-tw`
-- `ko`
+- `zhtw`
 
 Please submit a PR with a new locale if you need it. In order to create a new locale, you could translate it automatically with `node scripts/create-locale` which will use google translate.
 

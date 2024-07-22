@@ -1,59 +1,32 @@
-import * as ar from './locales/ar';
-import * as bg from './locales/bg';
-import * as bs from './locales/bs';
-import * as cs from './locales/cs';
-import * as da from './locales/da';
-import * as de from './locales/de';
-import * as en from './locales/en';
-import * as es from './locales/es';
-import * as fr from './locales/fr';
-import * as he from './locales/he';
-import * as id from './locales/id';
-import * as it from './locales/it';
-import * as ja from './locales/ja';
-import * as ko from './locales/ko';
-import * as lt from './locales/lt';
-import * as nb from './locales/nb';
-import * as nl from './locales/nl';
-import * as pl from './locales/pl';
-import * as pt from './locales/pt';
-import * as ru from './locales/ru';
-import * as sk from './locales/sk';
-import * as th from './locales/th';
-import * as tr from './locales/tr';
-import * as uz from './locales/uz';
-import * as vi from './locales/vi';
-import * as zh from './locales/zh';
-import * as zhtw from './locales/zhtw';
-import * as ro from './locales/ro';
-
-export {
-  ar,
-  bg,
-  bs,
-  cs,
-  da,
-  de,
-  en,
-  es,
-  fr,
-  he,
-  id,
-  it,
-  ja,
-  ko,
-  lt,
-  nb,
-  nl,
-  pl,
-  pt,
-  ro,
-  ru,
-  sk,
-  th,
-  tr,
-  uz,
-  vi,
-  zh,
-  zhtw,
-};
+export * as ar from './locales/ar';
+export * as bg from './locales/bg';
+export * as bs from './locales/bs';
+export * as cs from './locales/cs';
+export * as da from './locales/da';
+export * as de from './locales/de';
+export * as en from './locales/en';
+export * as es from './locales/es';
+export * as et from './locales/et';
+export * as fi from './locales/fi';
+export * as fr from './locales/fr';
+export * as he from './locales/he';
+export * as id from './locales/id';
+export * as it from './locales/it';
+export * as ja from './locales/ja';
+export * as ko from './locales/ko';
+export * as lt from './locales/lt';
+export * as nb from './locales/nb';
+export * as nl from './locales/nl';
+export * as pl from './locales/pl';
+export * as pt from './locales/pt';
+export * as ro from './locales/ro';
+export * as ru from './locales/ru';
+export * as sk from './locales/sk';
+export * as sv from './locales/sv';
+export * as th from './locales/th';
+export * as tr from './locales/tr';
+export * as uk from './locales/uk';
+export * as uz from './locales/uz';
+export * as vi from './locales/vi';
+export * as zh from './locales/zh';
+export * as zhtw from './locales/zhtw'
