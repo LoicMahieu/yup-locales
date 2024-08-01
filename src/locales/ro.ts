@@ -9,7 +9,8 @@ export const mixed: LocaleObject['mixed'] = {
   defined: '${path} trebuie să fie definit',
   notNull: '${path} nu poate fi nul',
   oneOf: '${path} trebuie să fie una dintre următoarele valori: ${values}',
-  notOneOf: '${path} nu trebuie să fie una dintre următoarele valori: ${values}',
+  notOneOf:
+    '${path} nu trebuie să fie una dintre următoarele valori: ${values}',
   notType: ({ path, type, value, originalValue }) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg =
@@ -43,18 +44,18 @@ export const string: LocaleObject['string'] = {
 };
 
 export const number: LocaleObject['number'] = {
-  min: "${path} trebuie să fie mai mare sau egal cu ${min}.",
-  max: "${path} trebuie să fie mai mic sau egal cu ${max}.",
-  lessThan: "${path} trebuie să fie mai mic decât ${less}",
-  moreThan: "${path} trebuie să fie mai mare decât ${more}",
+  min: '${path} trebuie să fie mai mare sau egal cu ${min}.',
+  max: '${path} trebuie să fie mai mic sau egal cu ${max}.',
+  lessThan: '${path} trebuie să fie mai mic decât ${less}',
+  moreThan: '${path} trebuie să fie mai mare decât ${more}',
   positive: '${path} trebuie să fie un număr pozitiv',
   negative: '${path} trebuie să fie un număr negativ',
   integer: '${path} trebuie să fie un întreg',
 };
 
 export const date: LocaleObject['date'] = {
-  min: "${path} câmpul trebuie să fie după ${min}",
-  max: "${path} câmpul trebuie să fie înainte de ${max}.",
+  min: '${path} câmpul trebuie să fie după ${min}',
+  max: '${path} câmpul trebuie să fie înainte de ${max}.',
 };
 
 export const boolean: LocaleObject['boolean'] = {
