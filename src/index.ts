@@ -9,7 +9,6 @@ import * as es from './locales/es';
 import * as fr from './locales/fr';
 import * as he from './locales/he';
 import * as hu from './locales/hu';
-import * as hu from './locales/hu';
 import * as id from './locales/id';
 import * as it from './locales/it';
 import * as ja from './locales/ja';
