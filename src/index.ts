@@ -20,6 +20,7 @@ import * as pl from './locales/pl';
 import * as pt from './locales/pt';
 import * as ru from './locales/ru';
 import * as sk from './locales/sk';
+import * as sl from './locales/sl';
 import * as th from './locales/th';
 import * as tr from './locales/tr';
 import * as uz from './locales/uz';
@@ -52,6 +53,7 @@ export {
   ro,
   ru,
   sk,
+  sl,
   th,
   tr,
   uz,

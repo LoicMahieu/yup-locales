@@ -45,6 +45,7 @@ Locales implemented:
 - `ro`
 - `ru`
 - `sk`
+- `sl`
 - `sv`
 - `th`
 - `tr`
