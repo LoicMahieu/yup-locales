@@ -20,6 +20,7 @@ setLocale(fr);
 
 Locales implemented:
 
+- `az`
 - `ar`
 - `bg`
 - `bs`

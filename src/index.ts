@@ -1,3 +1,4 @@
+import * as az from "./locales/az"
 import * as ar from './locales/ar';
 import * as bg from './locales/bg';
 import * as bs from './locales/bs';
@@ -29,6 +30,7 @@ import * as zhtw from './locales/zhtw';
 import * as ro from './locales/ro';
 
 export {
+  az,
   ar,
   bg,
   bs,
