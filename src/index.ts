@@ -14,6 +14,7 @@ import * as it from './locales/it';
 import * as ja from './locales/ja';
 import * as ko from './locales/ko';
 import * as lt from './locales/lt';
+import * as lv from './locales/lv';
 import * as nb from './locales/nb';
 import * as nl from './locales/nl';
 import * as pl from './locales/pl';
@@ -45,6 +46,7 @@ export {
   ja,
   ko,
   lt,
+  lv,
   nb,
   nl,
   pl,
