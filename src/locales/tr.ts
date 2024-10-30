@@ -30,16 +30,16 @@ export const mixed: LocaleObject['mixed'] = {
 };
 
 export const string: LocaleObject['string'] = {
-  length: '${path} tam olarak ${length} karakterler olmalı',
-  min: '${path} en azından ${min} karakterler olmalı',
-  max: '${path} en fazla ${max} karakterler olmalı',
-  matches: '${path} aşağıdakilerle eşleşmelidir: "${regex}"',
-  email: '${path} geçerli bir e -posta olmalı',
-  url: '${path} geçerli bir URL olmalı',
-  uuid: '${path} geçerli bir UUID olmalı',
-  trim: '${path} Kesilmiş bir ip olmalı',
-  lowercase: '${path} küçük harfli bir ip olmalı',
-  uppercase: '${path} büyük harfli bir ip olmalı',
+  length: '${path} tam olarak ${length} karakter uzunluğunda olmalıdır',
+  min: '${path} en az ${min} karakter olmalıdır',
+  max: '${path} en fazla ${max} karakter olmalıdır',
+  matches: '${path} aşağıdaki gibi olmalıdır: "${regex}"',
+  email: '${path} geçerli bir e-posta olmalıdır',
+  url: '${path} geçerli bir URL olmalıdır',
+  uuid: '${path} geçerli bir UUID olmalıdır',
+  trim: '${path} kırpılmış olmalıdır',
+  lowercase: '${path} küçük harfli olmalıdır',
+  uppercase: '${path} büyük harfli olmalıdır',
 };
 
 export const number: LocaleObject['number'] = {
