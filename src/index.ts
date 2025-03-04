@@ -10,6 +10,7 @@ import * as fr from './locales/fr';
 import * as he from './locales/he';
 import * as hu from './locales/hu';
 import * as id from './locales/id';
+import * as is from './locales/is';
 import * as it from './locales/it';
 import * as ja from './locales/ja';
 import * as ko from './locales/ko';
@@ -18,6 +19,7 @@ import * as nb from './locales/nb';
 import * as nl from './locales/nl';
 import * as pl from './locales/pl';
 import * as pt from './locales/pt';
+import * as ro from './locales/ro';
 import * as ru from './locales/ru';
 import * as sk from './locales/sk';
 import * as th from './locales/th';
@@ -26,7 +28,6 @@ import * as uz from './locales/uz';
 import * as vi from './locales/vi';
 import * as zh from './locales/zh';
 import * as zhtw from './locales/zhtw';
-import * as ro from './locales/ro';
 
 export {
   ar,
@@ -41,6 +42,7 @@ export {
   he,
   hu,
   id,
+  is,
   it,
   ja,
   ko,
