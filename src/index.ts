@@ -6,6 +6,8 @@ import * as da from './locales/da';
 import * as de from './locales/de';
 import * as en from './locales/en';
 import * as es from './locales/es';
+import * as et from './locales/et';
+import * as fi from './locales/fi';
 import * as fr from './locales/fr';
 import * as he from './locales/he';
 import * as hu from './locales/hu';
@@ -20,8 +22,10 @@ import * as pl from './locales/pl';
 import * as pt from './locales/pt';
 import * as ru from './locales/ru';
 import * as sk from './locales/sk';
+import * as sv from './locales/sv';
 import * as th from './locales/th';
 import * as tr from './locales/tr';
+import * as uk from './locales/uk';
 import * as uz from './locales/uz';
 import * as vi from './locales/vi';
 import * as zh from './locales/zh';
@@ -37,6 +41,8 @@ export {
   de,
   en,
   es,
+  et,
+  fi,
   fr,
   he,
   hu,
@@ -52,8 +58,10 @@ export {
   ro,
   ru,
   sk,
+  sv,
   th,
   tr,
+  uk,
   uz,
   vi,
   zh,
